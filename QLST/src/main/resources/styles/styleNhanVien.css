@@ -1,0 +1,26 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    *{
+        -fx-font-family:Tahoma;
+    }
+    VBox{
+    -fx-background-color:lightblue;
+    -fx-padding:10px;
+    -fx-spacing:10px;
+    -fx-alignment:CENTER;
+   
+    -fx-border-width: 5px;
+    -fx-border-color: black;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.8), 10, 0, 0, 0);
+}
+
+Text.Subject{
+    -fx-font-size:36;
+    -fx-fill:yellow;
+    -fx-stroke-width:3;
+    -fx-stroke:red;
+}
+}

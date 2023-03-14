@@ -12,7 +12,11 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar;
@@ -22,14 +26,15 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 public class FXMLChiNhanhController implements Initializable{
     @FXML private TableView<ChiNhanh> tbvChiNhanh;
     @FXML private TextField txtTenChiNhanh;
     @FXML private TextField txtDiaChi;
-    @FXML private TextField txtTimKiem;
     @FXML private Integer index;
     @FXML private TableColumn<ChiNhanh, String> colTenCN;
     @FXML private TableColumn<ChiNhanh, String> colDiaChi;
+    
     
 //    ObservableList<ChiNhanh> CNList;
     @Override
@@ -59,8 +64,6 @@ public class FXMLChiNhanhController implements Initializable{
             txtDiaChi.clear();
             txtTenChiNhanh.clear(); 
         }
-        
-           
     }
     public void deleteChiNhanh(ActionEvent event) throws SQLException {
         ChiNhanh cn = tbvChiNhanh.getSelectionModel().getSelectedItem();
@@ -108,6 +111,35 @@ public class FXMLChiNhanhController implements Initializable{
         }
         txtTenChiNhanh.setText(colTenCN.getCellData(index));
         txtDiaChi.setText(colDiaChi.getCellData(index));
+    }
+    public void changeScenceChiNhanhDetail(ActionEvent event) throws IOException{
+        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("ChiNhanhDetails.fxml"));
+        
+        Parent ChiNhanhViewParent = loader.load();
+        Scene scene = new Scene(ChiNhanhViewParent);
+        FXMLChiNhanhDetail controller = loader.getController();
+        ChiNhanh selected = tbvChiNhanh.getSelectionModel().getSelectedItem();
+        controller.setChiNhanh(selected);
+        stage.setScene(scene);
+    }
+    public void loadNhanVienDetail(ActionEvent event) throws IOException{
+            Parent root = FXMLLoader.load(getClass().getResource("NhanVienDetails.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("NhanVienDetails.fxml"));
+//            NhanVienDetails controller = new NhanVienDetails();
+//
+//            loader.setController(controller);
+//            FXMLNhanVienController controller = loader.getController();
+//            ChiNhanh selected = tbvChiNhanh.getSelectionModel().getSelectedItem();
+            
+            loader.setRoot(root);
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+         
     }
     
 }

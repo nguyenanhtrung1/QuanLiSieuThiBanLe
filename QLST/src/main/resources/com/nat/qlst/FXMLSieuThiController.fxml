@@ -53,15 +53,6 @@
                <VBox.margin>
                   <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </VBox.margin></TextField>
-            <Label text="Nhập thông tin tìm kiếm">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Label>
-            <TextField fx:id="txtTimKiem">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-               </VBox.margin></TextField>
          </children>
       </VBox>
    </left>
@@ -85,7 +76,7 @@
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" text="Thông tin nhân viên">
+            <Button mnemonicParsing="false" onAction="#changeScenceChiNhanhDetail" text="Thông tin chi nhánh">
                <HBox.margin>
                   <Insets left="50.0" top="20.0" />
                </HBox.margin>
@@ -93,7 +84,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Thông tin hàng hóa">
+            <Button mnemonicParsing="false" onAction="#loadNhanVienDetail" text="Thông tin nhân viên">
                <HBox.margin>
                   <Insets left="50.0" top="20.0" />
                </HBox.margin>
