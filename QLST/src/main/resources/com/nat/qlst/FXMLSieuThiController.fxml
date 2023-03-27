@@ -29,6 +29,7 @@
          <columns>
             <TableColumn fx:id="colTenCN" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Chi Nhánh" />
             <TableColumn fx:id="colDiaChi" prefWidth="75.0" style="-fx-alignment: center;" text="Địa Chỉ" />
+            <TableColumn fx:id="colSLNhanVien" prefWidth="75.0" style="-fx-alignment: center;" text="Số lượng nhân viên" />
          </columns></TableView>
    </center>
    <left>
@@ -53,6 +54,16 @@
                <VBox.margin>
                   <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
                </VBox.margin></TextField>
+            <Label layoutX="15.0" layoutY="95.0" text="Nhập Số Lượng Nhân Viên">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <TextField layoutX="15.0" layoutY="123.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </VBox.margin>
+            </TextField>
          </children>
       </VBox>
    </left>
@@ -63,13 +74,11 @@
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
                </VBox.margin></Button>
-            <Button mnemonicParsing="false" text="Sửa Chi Nhanh" />
-            <Button mnemonicParsing="false" onAction="#deleteChiNhanh" text="Xóa Chi Nhánh">
+            <Button mnemonicParsing="false" onAction="#updateChiNhanh" text="Sửa Chi Nhanh" />
+            <Button mnemonicParsing="false" onAction="#TimKiemChiNhanh" text="Tìm kiếm Chi Nhánh">
                <VBox.margin>
                   <Insets bottom="10.0" top="10.0" />
-               </VBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#TimKiemChiNhanh" text="Tìm kiếm Chi Nhánh" />
+               </VBox.margin></Button>
          </children>
       </VBox>
    </right>

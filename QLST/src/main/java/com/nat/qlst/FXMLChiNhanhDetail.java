@@ -23,17 +23,19 @@ import javafx.stage.Stage;
 public class FXMLChiNhanhDetail {
     @FXML Label lbName; 
     @FXML Label lbAddress; 
+    @FXML Label lbCount;
     
     public void setChiNhanh(ChiNhanh cn){
         lbName.setText(cn.getTenchinhanh());
         lbAddress.setText(cn.getDiachi());
+        lbCount.setText(String.valueOf(cn.getSoluongnhanvien()));
     }
     public void BackMainController(ActionEvent event) throws IOException{
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("FXMLSieuThiController.fxml"));
         Parent primaryParent = loader.load();
-        Scene scene = new Scene(primaryParent);
+        Scene scene = new Scene(primaryParent,840, 480);
         stage.setScene(scene);
     }
 }

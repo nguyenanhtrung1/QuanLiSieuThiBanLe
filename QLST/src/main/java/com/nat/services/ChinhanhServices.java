@@ -23,7 +23,7 @@ public class ChinhanhServices {
             ResultSet rs = stm.executeQuery("SELECT * FROM chinhanh");
             
                  while(rs.next()){
-                 ChiNhanh cn = new ChiNhanh(rs.getInt("machinhanh"),rs.getString("tenchinhanh"), rs.getString("diachi"));
+                 ChiNhanh cn = new ChiNhanh(rs.getInt("machinhanh"),rs.getString("tenchinhanh"), rs.getString("diachi"),rs.getInt("soluongnhanvien"));
                  ResultCN.add(cn);
               }
         }
@@ -45,7 +45,15 @@ public class ChinhanhServices {
           stm.executeUpdate(sql);
        }
    }
-   public void updateChiNhanh(int MaChiNhanh){
-       
+   public void updateChiNhanh(ChiNhanh cn) throws SQLException{
+       try(Connection conn = jdbcUtils.getConn()){
+          String sql = "UPDATE chinhanh SET tenchinhanh = ?, diachi = ? WHERE machinhanh = ?";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setString(1, cn.getTenchinhanh());
+            stm.setString(2,cn.getDiachi());
+            stm.setInt(3, cn.getMachinhanh());
+            stm.executeUpdate();
+            
+       }
    }
 }
