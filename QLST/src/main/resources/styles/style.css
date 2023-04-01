@@ -2,7 +2,7 @@
  * Empty Stylesheet file.
  */
 
-.mainFxmlClass {
+/*.mainFxmlClass {
     *{
         -fx-font-family:Tahoma;
     }
@@ -23,4 +23,4 @@ Text.Subject{
     -fx-stroke-width:3;
     -fx-stroke:red;
 }
-}
+}*/

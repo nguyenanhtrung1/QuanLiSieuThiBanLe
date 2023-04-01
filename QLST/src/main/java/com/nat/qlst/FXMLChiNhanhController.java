@@ -30,153 +30,188 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-public class FXMLChiNhanhController implements Initializable{
-    @FXML private TableView<ChiNhanh> tbvChiNhanh;
-    @FXML private TextField txtTenChiNhanh;
-    @FXML private TextField txtDiaChi;
-    @FXML private Integer index;
-    @FXML private TableColumn<ChiNhanh, String> colTenCN;
-    @FXML private TableColumn<ChiNhanh, String> colDiaChi;
-    @FXML private TableColumn<ChiNhanh, Integer> colSLNhanVien;
-    
+
+public class FXMLChiNhanhController implements Initializable {
+
+    @FXML
+    private TableView<ChiNhanh> tbvChiNhanh;
+    @FXML
+    private TextField txtTenChiNhanh;
+    @FXML
+    private TextField txtDiaChi;
+    @FXML
+    private Integer index;
+    @FXML
+    private TableColumn<ChiNhanh, String> colTenCN;
+    @FXML
+    private TableColumn<ChiNhanh, String> colDiaChi;
+    @FXML
+    private TableColumn<ChiNhanh, Integer> colSLNhanVien;
+
 //    ObservableList<ChiNhanh> CNList;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         try {
-             this.loadTableView();
-             ChinhanhServices cnS = new ChinhanhServices();
-             this.tbvChiNhanh.setItems(FXCollections.observableList(cnS.getChiNhanh()));
+        try {
+            this.loadTableView();
+            ChinhanhServices cnS = new ChinhanhServices();
+            this.tbvChiNhanh.setItems(FXCollections.observableList(cnS.getChiNhanh()));
         } catch (SQLException ex) {
             Logger.getLogger(FXMLChiNhanhController.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-         
-    }
-    public void addChiNhanh(ActionEvent event) throws SQLException{
-        
-        ChiNhanh cn = new ChiNhanh(txtTenChiNhanh.getText(),txtDiaChi.getText());
-        ChinhanhServices cnS = new ChinhanhServices();
-        if(txtTenChiNhanh.getText().equals("") || txtDiaChi.getText().equals("")){
-            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Vui lòng hãy điền đầy đủ thông tin", AlertType.ERROR).showAndWait();
         }
-        else{
+
+    }
+
+    public void addChiNhanh(ActionEvent event) throws SQLException {
+
+        ChiNhanh cn = new ChiNhanh(txtTenChiNhanh.getText(), txtDiaChi.getText());
+        ChinhanhServices cnS = new ChinhanhServices();
+        if (txtTenChiNhanh.getText().equals("") || txtDiaChi.getText().equals("")) {
+            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Vui lòng hãy điền đầy đủ thông tin", AlertType.ERROR).showAndWait();
+        } else {
             cnS.addChiNhanh(cn);
             loadTableData();
-            
+
         }
     }
-    
-    public void loadTableView(){         
+
+    public void loadTableView() {
         colTenCN.setPrefWidth(200);
         colTenCN.setCellValueFactory(new PropertyValueFactory("tenchinhanh"));
-        
+
         colDiaChi.setPrefWidth(200);
         colDiaChi.setCellValueFactory(new PropertyValueFactory("diachi"));
-        
+
         colSLNhanVien.setPrefWidth(200);
         colSLNhanVien.setCellValueFactory(new PropertyValueFactory("soluongnhanvien"));
 //        this.tbvChiNhanh.getColumns().addAll(colTenCN,colDiaChi);
         TableColumn colDel = new TableColumn("Xóa");
         colDel.setCellFactory(r -> {
             Button btn = new Button("Delete");
-        
+
             btn.setOnAction(evt -> {
-                Alert a = MessageBox.getBox("Question", 
-                        "Bạn chắc chắn muốn xóa chi nhánh này chứ?", 
+                Alert a = MessageBox.getBox("Question",
+                        "Bạn chắc chắn muốn xóa chi nhánh này chứ?",
                         Alert.AlertType.CONFIRMATION);
                 a.showAndWait().ifPresent(res -> {
                     if (res == ButtonType.OK) {
-                        Button b = (Button)evt.getSource();
+                        Button b = (Button) evt.getSource();
                         TableCell cell = (TableCell) b.getParent();
                         ChiNhanh cn = (ChiNhanh) cell.getTableRow().getItem();
                         ChinhanhServices cnS = new ChinhanhServices();
-                        
+
                         try {
-                            cnS.delChiNhanh(cn.getMachinhanh());                   
-                               loadTableData();
-                            
-                            
+                            cnS.delChiNhanh(cn.getMachinhanh());
+                            loadTableData();
+
                         } catch (SQLException ex) {
                             Logger.getLogger(FXMLChiNhanhController.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                        
+
                     }
                 });
             });
-            
+
             TableCell c = new TableCell();
             c.setGraphic(btn);
             return c;
         });
-        
+
         this.tbvChiNhanh.getColumns().addAll(colDel);
     }
+
     public void TimKiemChiNhanh(ActionEvent event) {
-        
+
     }
-    public void updateChiNhanh(ActionEvent event) throws SQLException{
-        ChiNhanh cn = new ChiNhanh(txtTenChiNhanh.getText(),txtDiaChi.getText(),idChiNhanh());
+
+    public void updateChiNhanh(ActionEvent event) throws SQLException {
+        ChiNhanh cn = new ChiNhanh(txtTenChiNhanh.getText(), txtDiaChi.getText(), idChiNhanh());
         ChinhanhServices cnS = new ChinhanhServices();
         cnS.updateChiNhanh(cn);
         loadTableData();
-           
+
     }
-    public void GetItem(MouseEvent event){
+
+    public void GetItem(MouseEvent event) {
         index = tbvChiNhanh.getSelectionModel().getSelectedIndex();
-        if(index < -1){
+        if (index < -1) {
             return;
         }
         txtTenChiNhanh.setText(colTenCN.getCellData(index));
         txtDiaChi.setText(colDiaChi.getCellData(index));
     }
-    public void changeScenceChiNhanhDetail(ActionEvent event) throws IOException{
-        Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
-        
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("ChiNhanhDetails.fxml"));
-        
-        Parent ChiNhanhViewParent = loader.load();
-        Scene scene = new Scene(ChiNhanhViewParent,840, 480);
-        FXMLChiNhanhDetail controller = loader.getController();
-        ChiNhanh selected = tbvChiNhanh.getSelectionModel().getSelectedItem();
-        controller.setChiNhanh(selected);
-        stage.setScene(scene);
+
+    public void changeScenceChiNhanhDetail(ActionEvent event) throws IOException {
+        if (tbvChiNhanh.getSelectionModel().getSelectedItem() == null) {
+            MessageBox.getBox("Chưa chọn dữ liệu", "Bạn chưa chọn chi nhánh để sử dụng chức năng", Alert.AlertType.ERROR).showAndWait();
+        } else {
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("ChiNhanhDetails.fxml"));
+
+            Parent ChiNhanhViewParent = loader.load();
+            Scene scene = new Scene(ChiNhanhViewParent, 900, 600);
+            FXMLChiNhanhDetail controller = loader.getController();
+            ChiNhanh selected = tbvChiNhanh.getSelectionModel().getSelectedItem();
+            controller.setChiNhanh(selected);
+            stage.setScene(scene);
+        }
+
     }
-    public void loadNhanVienDetail(ActionEvent event) throws IOException, SQLException{
-//            Parent root = FXMLLoader.load(getClass().getResource("NhanVienDetails.fxml"));
-//            
-//            Stage stage = new Stage();
-//            Scene scene = new Scene(root,840, 480);
-//            stage.setScene(scene);
-//            stage.show();
-               int data = idChiNhanh();
-               FXMLLoader loader = new FXMLLoader(getClass().getResource("NhanVienDetails.fxml"));
-               Parent root = loader.load();
-               FXMLNhanVienController controller = loader.getController();
+
+    public void loadNhanVienDetail(ActionEvent event) throws IOException, SQLException {
+
+        if (tbvChiNhanh.getSelectionModel().getSelectedItem() == null) {
+            MessageBox.getBox("Chưa chọn dữ liệu", "Bạn chưa chọn chi nhánh để sử dụng chức năng", Alert.AlertType.ERROR).showAndWait();
+        } else {
+            int data = idChiNhanh();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("NhanVienDetails.fxml"));
+            Parent root = loader.load();
+            FXMLNhanVienController controller = loader.getController();
 //               ChiNhanh selected = tbvChiNhanh.getSelectionModel().getSelectedItem();
 //               controller.test(selected);
-               controller.setData(data);
-               Stage stage = new Stage();
-               Scene scene = new Scene(root,840, 480);
-               stage.setScene(scene);
-               stage.show();
-         
+            controller.setData(data);
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 900, 600);
+            stage.setScene(scene);
+            stage.show();
+        }
+
     }
+
+    public void loadSanPhamDetail(ActionEvent event) throws IOException, SQLException {
+
+        if (tbvChiNhanh.getSelectionModel().getSelectedItem() == null) {
+            MessageBox.getBox("Chưa chọn dữ liệu", "Bạn chưa chọn chi nhánh để sử dụng chức năng", Alert.AlertType.ERROR).showAndWait();
+        } else {
+            int data = idChiNhanh();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SanPhamDetails.fxml"));
+            Parent root = loader.load();
+            FXMLSanPhamController controller = loader.getController();
+            controller.setData(data);
+            Stage stage = new Stage();
+            Scene scene = new Scene(root, 900, 600);
+            stage.setScene(scene);
+            stage.show();
+        }
+
+    }
+
     public void loadTableData() throws SQLException {
         ChinhanhServices cnS = new ChinhanhServices();
         List<ChiNhanh> cn = cnS.getChiNhanh();
         txtDiaChi.clear();
-        txtTenChiNhanh.clear(); 
+        txtTenChiNhanh.clear();
         this.tbvChiNhanh.getItems().clear();
         this.tbvChiNhanh.setItems(FXCollections.observableList(cn));
     }
-    public int idChiNhanh(){
+
+    public int idChiNhanh() {
         SelectionModel<ChiNhanh> selectionCollumn = tbvChiNhanh.getSelectionModel();
 
         ChiNhanh selectedUser = selectionCollumn.getSelectedItem();
 
         int ChiNhanhID = selectedUser.getMachinhanh();
-        return  ChiNhanhID;
+        return ChiNhanhID;
     }
-
-    
 }

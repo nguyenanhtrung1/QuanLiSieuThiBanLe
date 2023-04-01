@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLHoaDonConroller">
+   <children>
+      <TableView fx:id="tbvHoaDon" layoutX="42.0" layoutY="249.0" prefHeight="244.0" prefWidth="716.0">
+        <columns>
+          <TableColumn fx:id="colMaHD" prefWidth="75.0" text="Mã Hóa Đơn" />
+          <TableColumn fx:id="colMaSanPham" prefWidth="75.0" text="Tên Sản Phẩm" />
+            <TableColumn fx:id="colSoLuong" prefWidth="75.0" text="Số Lượng" />
+            <TableColumn fx:id="colGiaTien" prefWidth="75.0" text="Giá Tiền" />
+            <TableColumn fx:id="colNhanVien" prefWidth="75.0" text="Nhân Viên Nhập" />
+            <TableColumn fx:id="colDate" prefWidth="75.0" text="Ngày Nhập" />
+        </columns>
+      </TableView>
+      <Label layoutX="91.0" layoutY="64.0" text="Mã Hóa Đơn : " />
+      <TextField fx:id="txtMaHoaDon" layoutX="177.0" layoutY="60.0" />
+      <Label layoutX="91.0" layoutY="120.0" text="Mã Sản Phẩm : " />
+      <TextField fx:id="txtMaSanPham" layoutX="177.0" layoutY="116.0" />
+      <Label layoutX="400.0" layoutY="120.0" text="Nhân Viên Nhập : " />
+      <TextField fx:id="txtGiaNHap" layoutX="520.0" layoutY="60.0" />
+      <Label layoutX="400.0" layoutY="64.0" text="Giá Nhập :" />
+      <Label layoutX="91.0" layoutY="171.0" text="Số Lượng : " />
+      <TextField fx:id="txtSoLuong" layoutX="177.0" layoutY="167.0" />
+      <Label layoutX="400.0" layoutY="171.0" text="Ngày Nhập : " />
+      <Label layoutX="308.0" layoutY="14.0" text="Nhập Hóa Đơn">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cbHoaDon" layoutX="519.0" layoutY="116.0" prefWidth="150.0" />
+      <DatePicker fx:id="dateNhap" layoutX="519.0" layoutY="167.0" />
+      <Button layoutX="73.0" layoutY="525.0" mnemonicParsing="false" text="Nhập hóa đơn">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="497.0" layoutY="525.0" mnemonicParsing="false">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="289.0" layoutY="525.0" mnemonicParsing="false" text="Sửa Hóa Đơn">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>

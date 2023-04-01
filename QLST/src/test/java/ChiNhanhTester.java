@@ -10,8 +10,13 @@ import org.junit.jupiter.api.BeforeAll;
 import com.nat.services.ChinhanhServices;
 import com.nat.pojo.ChiNhanh;
 import com.nat.pojo.ChiNhanh;
+import com.nat.Utils.jdbcUtils;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -42,13 +47,16 @@ public class ChiNhanhTester {
 //        }
     }
     @Test 
-    public void testQuantity() throws SQLException{
+    public void testDiaChi() throws SQLException{
         Statement stm = conn.createStatement();
         ResultSet rs = stm.executeQuery("SELECT * FROM chinhanh");
+        List<String> kq = new ArrayList<>();
         while(rs.next()){
-            String name = rs.getString("diachi");
-            System.out.println(name);
+            String name = rs.getString("tenchinhanh");
+            kq.add(name);
         }
+        Set<String> kq2 = new HashSet<>(kq);
+        Assertions.assertEquals(kq.size(), kq2.size());
+        
     }
-    
 }

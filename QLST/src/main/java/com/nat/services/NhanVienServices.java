@@ -38,7 +38,23 @@ public class NhanVienServices {
             ResultSet rs = statement.executeQuery();
 
             while (rs.next()) {
-                NhanVien nv = new NhanVien(rs.getInt("manhanvien"),rs.getString("lastname"), rs.getString("firstname"), rs.getInt("age"),rs.getString("phonenumber"),rs.getInt("chinhanhID"));
+                NhanVien nv = new NhanVien(rs.getInt("manhanvien"),rs.getString("lastname"), rs.getString("firstname"), rs.getInt("age"),rs.getString("phonenumber"),rs.getByte("activenhanvien"),rs.getInt("chinhanhID"));
+                 ResultNV.add(nv);
+            }
+        }
+        
+        return ResultNV;
+    }
+    public List<NhanVien> getNhanVien() throws SQLException {
+        List<NhanVien> ResultNV = new ArrayList<>();
+        
+        try ( Connection conn = jdbcUtils.getConn()) {
+            String query = "SELECT * FROM nhanvien ";
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery(query);
+
+            while (rs.next()) {
+                NhanVien nv = new NhanVien(rs.getInt("manhanvien"),rs.getString("lastname"), rs.getString("firstname"), rs.getInt("age"),rs.getString("phonenumber"),rs.getByte("activenhanvien"),rs.getInt("chinhanhID"));
                  ResultNV.add(nv);
             }
         }
@@ -53,6 +69,7 @@ public class NhanVienServices {
             stm.setString(2,nv.getFirstname());
             stm.setInt(3, nv.getAge());
             stm.setString(4, nv.getPhonenumber());
+//            stm.setByte(5, nv.getActivenhanvien());
             stm.setInt(5, nv.getChinhanhID());
             stm.executeUpdate();
             
@@ -82,7 +99,6 @@ public class NhanVienServices {
             stm.setString(4,nv.getPhonenumber());
             stm.setInt(5, nv.getManhanvien());
             stm.executeUpdate();
-            
        }
    }
 }

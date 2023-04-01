@@ -6,4 +6,6 @@ module com.nat.qlst {
     opens com.nat.qlst to javafx.fxml;
     exports com.nat.qlst;
     exports com.nat.pojo;
+    exports com.nat.services;
+    exports com.nat.Utils;
 }

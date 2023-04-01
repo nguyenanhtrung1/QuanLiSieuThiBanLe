@@ -101,7 +101,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Cung cấp chức năng ">
+            <Button mnemonicParsing="false" onAction="#loadSanPhamDetail" text="Thông tin sản phẩm">
                <HBox.margin>
                   <Insets left="50.0" top="20.0" />
                </HBox.margin>

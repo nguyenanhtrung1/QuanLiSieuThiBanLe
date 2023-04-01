@@ -14,8 +14,9 @@ public class NhanVien {
     private String firstname;
     private int age;
     private String phonenumber;
+    private byte activenhanvien;
     private int chinhanhID;
-
+    
     public NhanVien() {
     }
     public NhanVien(String firstname, int age, String phonenumber,int chinhanhID) {
@@ -33,7 +34,13 @@ public class NhanVien {
         this.phonenumber = phonenumber;
         this.chinhanhID = chinhanhID;
     }
-
+    public NhanVien(String lastname,int age , String firstname, String phonenumber, int manhanvien) {
+        this.lastname = lastname;
+        this.age = age;
+        this.firstname = firstname;
+        this.phonenumber = phonenumber;
+        this.manhanvien = manhanvien;
+    }
     public NhanVien(int manhanvien, String lastname, String firstname, int age, String phonenumber, int chinhanhID) {
         this.manhanvien = manhanvien;
         this.lastname = lastname;
@@ -43,12 +50,23 @@ public class NhanVien {
         this.chinhanhID = chinhanhID;
     }
 
-    public NhanVien( String lastname,int age , String firstname, String phonenumber, int manhanvien) {
+    public NhanVien(String lastname, String firstname, int age, String phonenumber, byte activenhanvien, int chinhanhID) {
         this.lastname = lastname;
-        this.age = age;
         this.firstname = firstname;
+        this.age = age;
         this.phonenumber = phonenumber;
+        this.activenhanvien = activenhanvien;
+        this.chinhanhID = chinhanhID;
+    }
+
+    public NhanVien(int manhanvien, String lastname, String firstname, int age, String phonenumber, byte activenhanvien, int chinhanhID) {
         this.manhanvien = manhanvien;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.age = age;
+        this.phonenumber = phonenumber;
+        this.activenhanvien = activenhanvien;
+        this.chinhanhID = chinhanhID;
     }
     
     public int getManhanvien() {
@@ -98,9 +116,18 @@ public class NhanVien {
     public void setChinhanhID(int chinhanhID) {
         this.chinhanhID = chinhanhID;
     }
-    
-    
 
+    public byte getActivenhanvien() {
+        return activenhanvien;
+    }
+
+    public void setActivenhanvien(byte activenhanvien) {
+        this.activenhanvien = activenhanvien;
+    }
     
+    @Override
+    public String toString() {
+        return this.firstname + " " +this.lastname;
+    }
 
 }
