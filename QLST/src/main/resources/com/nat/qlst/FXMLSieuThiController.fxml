@@ -1,115 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLChiNhanhController">
-   <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <items>
-            <Label alignment="CENTER" text="Quản Lí Chuỗi Siêu Thị">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
-         </items>
-      </ToolBar>
-   </top>
-   <center>
-      <TableView fx:id="tbvChiNhanh" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#GetItem" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<Pane prefHeight="600.0" prefWidth="900.0" stylesheets="@../../../styles/styleChiNhanh.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLChiNhanhController">
+   <children>
+      <Label alignment="CENTER" layoutX="274.0" layoutY="14.0" text="QUẢN LÍ CHUỖI SIÊU THỊ">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Button layoutX="36.0" layoutY="524.0" mnemonicParsing="false" onAction="#changeScenceChiNhanhDetail" text="Thông tin chi nhánh">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button layoutX="323.0" layoutY="524.0" mnemonicParsing="false" onAction="#loadNhanVienDetail" text="Thông tin nhân viên">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button layoutX="610.0" layoutY="524.0" mnemonicParsing="false" onAction="#loadSanPhamDetail" text="Thông tin sản phẩm">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtTenChiNhanh" layoutX="93.0" layoutY="63.0" prefHeight="46.0" prefWidth="435.0" promptText="Nhập Tên Chi Nhánh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtDiaChi" layoutX="90.0" layoutY="136.0" prefHeight="43.0" prefWidth="441.0" promptText="Nhập Địa Chỉ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Button layoutX="25.0" layoutY="195.0" mnemonicParsing="false" onAction="#addChiNhanh" text="Thêm Chi Nhánh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="300.0" layoutY="195.0" mnemonicParsing="false" onAction="#updateChiNhanh" text="Cập Nhật Chi Nhánh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="568.0" layoutY="195.0" mnemonicParsing="false" onAction="#TimKiemChiNhanh" text="Tìm kiếm Chi Nhánh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tbvChiNhanh" layoutX="25.0" layoutY="263.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#GetItem" prefHeight="237.0" prefWidth="853.0">
          <columns>
             <TableColumn fx:id="colTenCN" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Chi Nhánh" />
             <TableColumn fx:id="colDiaChi" prefWidth="75.0" style="-fx-alignment: center;" text="Địa Chỉ" />
             <TableColumn fx:id="colSLNhanVien" prefWidth="75.0" style="-fx-alignment: center;" text="Số lượng nhân viên" />
-         </columns></TableView>
-   </center>
-   <left>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Label text="Nhập mã CN">
-               <VBox.margin>
-                  <Insets left="5.0" top="10.0" />
-               </VBox.margin></Label>
-            <TextField fx:id="txtTenChiNhanh">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-               </VBox.margin></TextField>
-            <Label text="Nhập Địa chỉ">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-               <VBox.margin>
-                  <Insets left="5.0" top="10.0" />
-               </VBox.margin></Label>
-            <TextField fx:id="txtDiaChi">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-               </VBox.margin></TextField>
-            <Label layoutX="15.0" layoutY="95.0" text="Nhập Số Lượng Nhân Viên">
-               <padding>
-                  <Insets left="5.0" />
-               </padding>
-            </Label>
-            <TextField layoutX="15.0" layoutY="123.0">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
-               </VBox.margin>
-            </TextField>
-         </children>
-      </VBox>
-   </left>
-   <right>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" onAction="#addChiNhanh" text="Thêm Chi Nhanh">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin></Button>
-            <Button mnemonicParsing="false" onAction="#updateChiNhanh" text="Sửa Chi Nhanh" />
-            <Button mnemonicParsing="false" onAction="#TimKiemChiNhanh" text="Tìm kiếm Chi Nhánh">
-               <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
-               </VBox.margin></Button>
-         </children>
-      </VBox>
-   </right>
-   <bottom>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" onAction="#changeScenceChiNhanhDetail" text="Thông tin chi nhánh">
-               <HBox.margin>
-                  <Insets left="50.0" top="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#loadNhanVienDetail" text="Thông tin nhân viên">
-               <HBox.margin>
-                  <Insets left="50.0" top="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#loadSanPhamDetail" text="Thông tin sản phẩm">
-               <HBox.margin>
-                  <Insets left="50.0" top="20.0" />
-               </HBox.margin>
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
-   </bottom>
-</BorderPane>
+         </columns>
+      </TableView>
+   </children>
+</Pane>

@@ -44,11 +44,6 @@
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="497.0" layoutY="525.0" mnemonicParsing="false">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Button>
       <Button layoutX="289.0" layoutY="525.0" mnemonicParsing="false" text="Sửa Hóa Đơn">
          <font>
             <Font size="22.0" />

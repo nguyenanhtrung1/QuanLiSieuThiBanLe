@@ -91,14 +91,16 @@ public class NhanVienServices {
    }
     public void updateNhanVien(NhanVien nv) throws SQLException{
        try(Connection conn = jdbcUtils.getConn()){
-          String sql = "UPDATE nhanvien SET lastname = ?,age = ? ,firstname = ? , phonenumber = ? WHERE manhanvien = ? ";
+          String sql = "UPDATE nhanvien SET lastname = ?,age = ? ,firstname = ? , phonenumber = ?, activenhanvien = ? WHERE manhanvien = ? ";
             PreparedStatement stm = conn.prepareStatement(sql);
             stm.setString(1, nv.getLastname());
             stm.setInt(2, nv.getAge());
             stm.setString(3,nv.getFirstname());
             stm.setString(4,nv.getPhonenumber());
-            stm.setInt(5, nv.getManhanvien());
+            stm.setByte(5, nv.getActivenhanvien());
+            stm.setInt(6, nv.getManhanvien());
             stm.executeUpdate();
        }
    }
+    
 }

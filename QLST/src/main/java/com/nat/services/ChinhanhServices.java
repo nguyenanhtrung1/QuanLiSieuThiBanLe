@@ -36,8 +36,8 @@ public class ChinhanhServices {
             stm.setString(1, cn.getTenchinhanh());
             stm.setString(2, cn.getDiachi());
             stm.executeUpdate();
-        }
-    }
+       }
+    } 
     public void delChiNhanh(int MaChiNhanh) throws SQLException{
         try(Connection conn = jdbcUtils.getConn()){
           Statement stm = conn.createStatement();       

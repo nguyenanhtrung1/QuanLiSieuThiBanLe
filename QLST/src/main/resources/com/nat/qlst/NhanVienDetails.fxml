@@ -57,7 +57,7 @@
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="500.0" layoutY="493.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="253.0" text="Cung Cấp Chức Năng" textAlignment="CENTER">
+      <Button layoutX="500.0" layoutY="493.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="253.0" text="Tài Khoản Nhân Viên" textAlignment="CENTER">
          <font>
             <Font size="22.0" />
          </font>

@@ -19,6 +19,7 @@ public class NhanVien {
     
     public NhanVien() {
     }
+
     public NhanVien(String firstname, int age, String phonenumber,int chinhanhID) {
         
         this.firstname = firstname;
@@ -34,11 +35,12 @@ public class NhanVien {
         this.phonenumber = phonenumber;
         this.chinhanhID = chinhanhID;
     }
-    public NhanVien(String lastname,int age , String firstname, String phonenumber, int manhanvien) {
+    public NhanVien(String lastname,int age , String firstname, String phonenumber,byte activenhanvien , int manhanvien) {
         this.lastname = lastname;
         this.age = age;
         this.firstname = firstname;
         this.phonenumber = phonenumber;
+        this.activenhanvien = activenhanvien;
         this.manhanvien = manhanvien;
     }
     public NhanVien(int manhanvien, String lastname, String firstname, int age, String phonenumber, int chinhanhID) {

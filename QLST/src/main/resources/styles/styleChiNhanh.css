@@ -1,0 +1,67 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 2, 2023, 3:08:27 PM
+    Author     : Admin
+*/
+
+/*#rootPane {
+  -fx-background-color: #f5f5f5;  màu nền cho Pane 
+}
+.label{
+    
+}
+.button {
+  -fx-background-color: #2196F3;  màu nền cho Button 
+  -fx-text-fill: white;  màu chữ cho Button 
+  -fx-padding: 10 20;  khoảng cách giữa các thành phần bên trong của Button 
+}
+
+.button:hover {
+  -fx-background-color: #0D47A1;  màu nền khi rê chuột vào Button 
+}
+
+.text-field {
+  -fx-background-color: #f2f2f2;  màu nền cho TextField 
+  -fx-border-color: transparent;  không có đường viền cho TextField 
+  -fx-padding: 5 10;  khoảng cách giữa các thành phần bên trong của TextField 
+}
+
+.table-view {
+  -fx-background-color: white;  màu nền cho TableView 
+  -fx-border-width: 1;  độ dày đường viền cho TableView 
+  -fx-border-color: #A9A9A9;  màu đường viền cho TableView 
+}
+
+.table-view .column-header-background {
+  -fx-background-color: #f2f2f2;  màu nền cho phần đầu cột TableView 
+}
+
+.table-view .column-header, .cell {
+  -fx-alignment: center;  canh giữa phần tử trong cell và header 
+}
+
+.table-view .column-header .label {
+  -fx-font-weight: bold;  in đậm chữ trong header 
+  -fx-font-size: 16;  kích thước font cho header 
+}
+
+.table-view .cell {
+  -fx-font-size: 14;  kích thước font cho nội dung trong cell 
+  -fx-padding: 5 10;  khoảng cách giữa các thành phần bên trong của cell 
+}*/
+
+/*.table-view .table-row-cell:selected {
+  -fx-background-color: #2196F3;  màu nền khi chọn một row 
+  -fx-text-fill: white;  màu chữ khi được chọn 
+}
+
+.table-view .table-row-cell:odd {
+  -fx-background-color: #f9f9f9;  màu nền của các hàng lẻ 
+}
+
+.table-view .table-row-cell:even {
+  -fx-background-color: #f2f2f2;  màu nền của các hàng chẵn 
+}*/

@@ -1,0 +1,64 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 2, 2023, 3:04:13 PM
+    Author     : Admin
+*/
+
+#AnchorPane {
+  -fx-background-color: #f5f5f5; /* Màu nền cho AnchorPane */
+}
+
+.tab-pane {
+  -fx-tab-min-width: 100; /* Độ rộng tối thiểu cho các tab */
+  -fx-tab-max-width: 100; /* Độ rộng tối đa cho các tab */
+  -fx-tab-min-height: 40; /* Độ cao tối thiểu cho các tab */
+  -fx-tab-max-height: 40; /* Độ cao tối đa cho các tab */
+  -fx-padding: 10; /* Khoảng cách giữa TabPane và nội dung bên trong */
+}
+
+.tab-pane:focused .tab-header-area .tab:selected .focus-indicator {
+  -fx-border-color: transparent;
+}
+
+.tab-pane .tab-header-area .tab:selected  {
+  -fx-background-color: #2196F3; /* Màu nền cho tab được chọn */
+  -fx-text-fill: white; /* Màu chữ trong tab được chọn */
+}
+
+.tab-pane .tab-header-area .tab:hover {
+  -fx-background-color: #BBDEFB; /* Màu nền khi rê chuột vào tab */
+}
+
+.vbox {
+  -fx-spacing: 10; /* Khoảng cách giữa các thành phần bên trong */
+  -fx-alignment: center; /* Canh giữa các thành phần theo trục Vertical */
+}
+
+.label {
+  -fx-font-weight: bold; /* Đinh dạng đậm cho các Label */
+  -fx-font-size: 14; /* Kích thước font cho các Label */
+}
+
+.text-field, .password-field {
+  -fx-font-size: 14; /* Kích thước font cho các TextField và PasswordField */
+}
+
+.button {
+  -fx-background-color: #2196F3; /* Màu nền cho các Button */
+  -fx-text-fill: white; /* Màu chữ cho các Button */
+  -fx-font-size: 14; /* Kích thước font cho các Button */
+  -fx-padding: 10 20; /* Khoảng cách giữa các thành phần của các Button */
+}
+
+.button:hover {
+  -fx-background-color: #0D47A1; /* Màu nền khi rê chuột vào các Button */
+}
+
+.label#loginStatus, .label#signupStatus {
+  -fx-font-size: 14; /* Kích thước font cho các Label thông báo */
+  -fx-font-weight: bold; /* Định dạng đậm cho các Label thông báo */
+  -fx-text-fill: red; /* Màu chữ cho các Label thông báo */
+}

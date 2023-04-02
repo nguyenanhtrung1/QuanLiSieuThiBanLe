@@ -46,7 +46,7 @@ public class FXMLNhanVienController implements Initializable{
     @FXML private TextField txtPhoneNumber;
     @FXML private TextField txtHo;
     @FXML private ComboBox<ChiNhanh> cbChiNhanhs ;
-    @FXML private ComboBox<Integer> cbActive ;
+    @FXML private ComboBox<Byte> cbActive ;
     @FXML private TableColumn<NhanVien,String> colTenNV;
     @FXML private TableColumn<NhanVien,Integer> colTuoiNV;
     @FXML private TableColumn<NhanVien,String> colPhoneNumber;
@@ -63,9 +63,11 @@ public class FXMLNhanVienController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
 //        NhanVienServices nvS = new NhanVienServices();
         try {
-            List<Integer> listCBActive = new ArrayList<>();
-            listCBActive.add(0);
-            listCBActive.add(1);
+            List<Byte> listCBActive = new ArrayList<>();
+            Byte b1 = 0;
+            Byte b2 = 1;
+            listCBActive.add(b1);
+            listCBActive.add(b2);
             this.cbActive.setItems(FXCollections.observableList(listCBActive));
             this.loadTableView();
             ChinhanhServices cnS = new ChinhanhServices();
@@ -157,7 +159,7 @@ public class FXMLNhanVienController implements Initializable{
     }
     public void updateNhanVien(ActionEvent event) throws SQLException{
         
-        if(cbChiNhanhs.getSelectionModel().getSelectedItem() == null ){
+        if(cbActive.getSelectionModel().getSelectedItem() == null ){
             MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chi nhánh để cập nhật nhân viên", Alert.AlertType.ERROR).showAndWait();
         }
         else if(txtHo.getText().isEmpty() || txtTenNV.getText().isEmpty() || txtTuoi.getText().isEmpty() || txtPhoneNumber.getText().isEmpty()){
@@ -165,7 +167,7 @@ public class FXMLNhanVienController implements Initializable{
 
         }
         else{
-        NhanVien nv = new NhanVien(txtHo.getText(),Integer.parseInt(txtTuoi.getText()),txtTenNV.getText(),txtPhoneNumber.getText(),idNhanVien());
+        NhanVien nv = new NhanVien(txtHo.getText(),Integer.parseInt(txtTuoi.getText()),txtTenNV.getText(),txtPhoneNumber.getText(),this.cbActive.getValue(),idNhanVien());
         NhanVienServices nvS = new NhanVienServices();
         nvS.updateNhanVien(nv);
         loadTableNhanVien();
@@ -194,12 +196,6 @@ public class FXMLNhanVienController implements Initializable{
         txtTuoi.setText(String.valueOf(colTuoiNV.getCellData(index)));
         txtPhoneNumber.setText(colPhoneNumber.getCellData(index));
     }
-//    private void loadTableNhanVien(int kw) throws SQLException {
-//        NhanVienServices nvS = new NhanVienServices();
-//        List<NhanVien> nv = nvS.getNhanVien(kw);
-//        
-//        this.tbvNhanVien.getItems().clear();
-//        this.tbvNhanVien.setItems(FXCollections.observableList(nv));
-//    }
+    
     
 }

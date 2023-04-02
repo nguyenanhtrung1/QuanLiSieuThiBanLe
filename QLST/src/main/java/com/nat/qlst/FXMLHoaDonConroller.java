@@ -23,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 
 /**
  *
@@ -43,7 +44,10 @@ public class FXMLHoaDonConroller implements Initializable{
     @FXML private TableColumn<HoaDon,DatePicker> colDate;
     @FXML private TableColumn<HoaDon,String> colDel;
     @FXML private TableView<HoaDon> tbvHoaDon;
-
+public void LoadData() throws SQLException {
+        HoaDonServices hdS = new HoaDonServices();
+        this.tbvHoaDon.setItems(FXCollections.observableList(hdS.getHoaDon()));
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {

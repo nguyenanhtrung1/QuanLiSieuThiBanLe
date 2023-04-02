@@ -47,17 +47,16 @@ public class FXMLChiNhanhController implements Initializable {
     private TableColumn<ChiNhanh, String> colDiaChi;
     @FXML
     private TableColumn<ChiNhanh, Integer> colSLNhanVien;
-
+    public void LoadData() throws SQLException {
+        ChinhanhServices cnS = new ChinhanhServices();
+        this.tbvChiNhanh.setItems(FXCollections.observableList(cnS.getChiNhanh()));
+    }
 //    ObservableList<ChiNhanh> CNList;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            this.loadTableView();
-            ChinhanhServices cnS = new ChinhanhServices();
-            this.tbvChiNhanh.setItems(FXCollections.observableList(cnS.getChiNhanh()));
-        } catch (SQLException ex) {
-            Logger.getLogger(FXMLChiNhanhController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.loadTableView();
+//            ChinhanhServices cnS = new ChinhanhServices();
+//            this.tbvChiNhanh.setItems(FXCollections.observableList(cnS.getChiNhanh()));
 
     }
 
@@ -78,7 +77,7 @@ public class FXMLChiNhanhController implements Initializable {
         colTenCN.setPrefWidth(200);
         colTenCN.setCellValueFactory(new PropertyValueFactory("tenchinhanh"));
 
-        colDiaChi.setPrefWidth(200);
+        colDiaChi.setPrefWidth(350);
         colDiaChi.setCellValueFactory(new PropertyValueFactory("diachi"));
 
         colSLNhanVien.setPrefWidth(200);
@@ -106,7 +105,6 @@ public class FXMLChiNhanhController implements Initializable {
                         } catch (SQLException ex) {
                             Logger.getLogger(FXMLChiNhanhController.class.getName()).log(Level.SEVERE, null, ex);
                         }
-
                     }
                 });
             });
@@ -118,16 +116,22 @@ public class FXMLChiNhanhController implements Initializable {
 
         this.tbvChiNhanh.getColumns().addAll(colDel);
     }
-
+    
     public void TimKiemChiNhanh(ActionEvent event) {
 
     }
 
     public void updateChiNhanh(ActionEvent event) throws SQLException {
-        ChiNhanh cn = new ChiNhanh(txtTenChiNhanh.getText(), txtDiaChi.getText(), idChiNhanh());
-        ChinhanhServices cnS = new ChinhanhServices();
-        cnS.updateChiNhanh(cn);
-        loadTableData();
+
+        if (txtTenChiNhanh.getText().equals("") || txtDiaChi.getText().equals("")) {
+            MessageBox.getBox("Không thể cập nhật dữ liệu bỏ trống", "Vui lòng hãy điền đầy đủ thông tin", AlertType.ERROR).showAndWait();
+        } else {
+            ChiNhanh cn = new ChiNhanh(txtTenChiNhanh.getText(), txtDiaChi.getText(), idChiNhanh());
+            ChinhanhServices cnS = new ChinhanhServices();
+            cnS.updateChiNhanh(cn);
+            loadTableData();
+
+        }
 
     }
 
