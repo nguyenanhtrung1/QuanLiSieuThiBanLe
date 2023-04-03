@@ -10,12 +10,29 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Admin
  */
 public class TaiKhoanServices {
+    public List<TaiKhoan> getTaiKhoanAdmin() throws SQLException {
+        List<TaiKhoan> ResultCN = new ArrayList<>();
+        try ( Connection conn = jdbcUtils.getConn()) {
+            Statement stm = conn.createStatement();
+            ResultSet rs = stm.executeQuery("SELECT * FROM taikhoan");
+            
+                 while(rs.next()){
+                 TaiKhoan tk = new TaiKhoan(rs.getInt("mataikhoan"),rs.getString("tendangnhap"), rs.getString("matkhau"),rs.getString("taikhoan_role"));
+                 ResultCN.add(tk);
+              }
+        }
+        
+        return ResultCN;
+    }
     public void addTaiKhoan(TaiKhoan tk) throws SQLException{
         try(Connection conn = jdbcUtils.getConn()){
             PreparedStatement stm = conn.prepareStatement("INSERT INTO taikhoan ( tendangnhap, matkhau,taikhoan_role) VALUES ( ?, ?,?)");
@@ -40,4 +57,11 @@ public class TaiKhoanServices {
        }
         return count > 0;
     }
+    public void delTaiKhoan(int MaTaiKhoan) throws SQLException{
+        try(Connection conn = jdbcUtils.getConn()){
+          Statement stm = conn.createStatement();       
+          String sql = "DELETE FROM taikhoan WHERE mataikhoan =" + MaTaiKhoan;
+          stm.executeUpdate(sql);
+       }
+   }
 }

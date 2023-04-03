@@ -9,16 +9,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 #AnchorPane {
   -fx-background-color: #f5f5f5; /* Màu nền cho AnchorPane */
+  -fx-border-color: #2196F3;
 }
 
 .tab-pane {
-  -fx-tab-min-width: 100; /* Độ rộng tối thiểu cho các tab */
-  -fx-tab-max-width: 100; /* Độ rộng tối đa cho các tab */
-  -fx-tab-min-height: 40; /* Độ cao tối thiểu cho các tab */
-  -fx-tab-max-height: 40; /* Độ cao tối đa cho các tab */
+  -fx-border-color: #2196F3;
   -fx-padding: 10; /* Khoảng cách giữa TabPane và nội dung bên trong */
 }
-
+.tab{
+    -fx-font-size: 12pt;  
+}
 .tab-pane:focused .tab-header-area .tab:selected .focus-indicator {
   -fx-border-color: transparent;
 }
@@ -38,8 +38,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .label {
-  -fx-font-weight: bold; /* Đinh dạng đậm cho các Label */
-  -fx-font-size: 14; /* Kích thước font cho các Label */
+  -fx-font-weight: bold;  
+  -fx-font-size: 17;  
+  
 }
 
 .text-field, .password-field {
@@ -50,9 +51,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
   -fx-background-color: #2196F3; /* Màu nền cho các Button */
   -fx-text-fill: white; /* Màu chữ cho các Button */
   -fx-font-size: 14; /* Kích thước font cho các Button */
-  -fx-padding: 10 20; /* Khoảng cách giữa các thành phần của các Button */
 }
-
+.combo-box {
+    -fx-padding: 4px;
+    -fx-border-width: 2px;
+    -fx-border-color: #2196F3;
+    -fx-font-size: 11pt;  
+}
 .button:hover {
   -fx-background-color: #0D47A1; /* Màu nền khi rê chuột vào các Button */
 }

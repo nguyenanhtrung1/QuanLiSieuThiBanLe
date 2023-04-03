@@ -1,92 +1,94 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.nat.qlst;
 
 import com.nat.Utils.MessageBox;
 import com.nat.pojo.ChiNhanh;
 import com.nat.pojo.TaiKhoan;
-import com.nat.services.ChinhanhServices;
 import com.nat.services.TaiKhoanServices;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+
 
 public class FXMLTaiKhoanController implements Initializable {
-    @FXML private TextField txtTK_DangNhap;
-    @FXML private TextField txtMK_DangNhap;
-    @FXML private TextField txtTK_DangKi;
-    @FXML private TextField txtMK_DangKi;
-    @FXML private ComboBox<String> cbTK_RoleDN ;
-    @FXML private ComboBox<String> cbTK_RoleDK ;
-    
+
+    @FXML
+    private TableView<TaiKhoan> tbvNhanVien;
+    @FXML
+    private TableColumn<TaiKhoan, String> colTaiKhoan;
+    @FXML
+    private TableColumn<TaiKhoan, String> colMatKhau;
+    @FXML
+    private TableColumn<TaiKhoan, String> colVaiTro;
+    @FXML
+    private TableColumn<TaiKhoan, String> colDel;
+    /**
+     * Initializes the controller class.
+     */
+    TaiKhoanServices tkS = new TaiKhoanServices();
+    public void LoadData() throws SQLException {
+        this.tbvNhanVien.setItems(FXCollections.observableList(tkS.getTaiKhoanAdmin()));
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        List<String> ListENUM = new ArrayList<>();
-            String s1 = "nhanvien";
-            String s2 = "quantrivien";
-            ListENUM.add(s1);
-            ListENUM.add(s2);
-            this.cbTK_RoleDK.setItems(FXCollections.observableList(ListENUM));
-            this.cbTK_RoleDN.setItems(FXCollections.observableList(ListENUM));
-    }
-    public void addTaiKhoan(ActionEvent event) throws SQLException {
-        if(cbTK_RoleDK.getSelectionModel().getSelectedItem() == null ){
-            MessageBox.getBox("ERROR", "Chưa chọn chức vụ để thêm tài khoản", Alert.AlertType.ERROR).showAndWait();
-        }
-        else if(txtTK_DangKi.getText().isEmpty() || txtMK_DangKi.getText().isEmpty() ){
-        MessageBox.getBox("ERROR", "Chưa Nhập đầy đủ dữ liệu", Alert.AlertType.ERROR).showAndWait();
+        this.loadTableView();
+    }    
+    public void loadTableView() {
+        colTaiKhoan.setPrefWidth(200);
+        colTaiKhoan.setCellValueFactory(new PropertyValueFactory("tendangnhap"));
 
-        }
-        else{
-            TaiKhoan tk = new TaiKhoan(txtTK_DangKi.getText(),txtMK_DangKi.getText(),cbTK_RoleDK.getValue());
-            TaiKhoanServices tkS = new TaiKhoanServices();
-            tkS.addTaiKhoan(tk);
-            MessageBox.getBox("Success", "Đăng Kí Thành Công", Alert.AlertType.ERROR).showAndWait();
-        }
-    }
-    public void DangNhap(ActionEvent event) throws SQLException, IOException{
-        TaiKhoan tk = new TaiKhoan(txtTK_DangNhap.getText(), txtMK_DangNhap.getText(), cbTK_RoleDN.getValue());
-        try {
-            TaiKhoanServices tks = new TaiKhoanServices();
-            if (tks.checkLogin(tk) && cbTK_RoleDN.getValue().equals("quantrivien") == true) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLSieuThiController.fxml"));
-            Parent root = loader.load();
-            FXMLChiNhanhController controller = loader.getController();
-            controller.LoadData();
-            Stage stage = new Stage();
-            Scene scene = new Scene(root, 900, 600);
-            stage.setScene(scene);
-            stage.show();
+        colMatKhau.setPrefWidth(350);
+        colMatKhau.setCellValueFactory(new PropertyValueFactory("matkhau"));
 
-            } else if(tks.checkLogin(tk) && cbTK_RoleDN.getValue().equals("nhanvien") == true){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HoaDonDetails.fxml"));
-            Parent root = loader.load();
-            FXMLHoaDonConroller controller = loader.getController();
-            controller.LoadData();
-            Stage stage = new Stage();
-            Scene scene = new Scene(root, 900, 600);
-            stage.setScene(scene);
-            stage.show();
-            }
-            
-            else {
-                MessageBox.getBox("ERROR", "Đăng Nhập Thất Bại, Hãy kiểm tra lại thông tin", Alert.AlertType.ERROR).showAndWait();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();    
-        }
+        colVaiTro.setPrefWidth(200);
+        colVaiTro.setCellValueFactory(new PropertyValueFactory("taikhoan_role"));
+        
+        colDel.setCellFactory(r -> {
+            Button btn = new Button("Delete");
+
+            btn.setOnAction(evt -> {
+                Alert a = MessageBox.getBox("Question",
+                        "Bạn chắc chắn muốn xóa chi nhánh này chứ?",
+                        Alert.AlertType.CONFIRMATION);
+                a.showAndWait().ifPresent(res -> {
+                    if (res == ButtonType.OK) {
+                        Button b = (Button) evt.getSource();
+                        TableCell cell = (TableCell) b.getParent();
+                        TaiKhoan tk = (TaiKhoan) cell.getTableRow().getItem();
+                        
+                        try {
+                            tkS.delTaiKhoan(tk.getMataikhoan());
+                            loadTableTaiKhoan();
+                        } catch (SQLException ex) {
+                            Logger.getLogger(FXMLChiNhanhController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                });
+            });
+
+            TableCell c = new TableCell();
+            c.setGraphic(btn);
+            return c;
+        });
+
+        
     }
-    
+    public void loadTableTaiKhoan() throws SQLException{
+        this.tbvNhanVien.setItems(FXCollections.observableArrayList(tkS.getTaiKhoanAdmin()));
+    }
 }

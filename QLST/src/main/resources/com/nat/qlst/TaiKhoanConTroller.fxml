@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLTaiKhoanController">
+    <TableView fx:id="tbvNhanVien" layoutX="56.0" layoutY="104.0" prefHeight="495.0" prefWidth="898.0">
+         <columns>
+            <TableColumn fx:id="colTaiKhoan" prefWidth="75.0" style="-fx-alignment: center;" text="Tài Khoản" />
+            <TableColumn fx:id="colMatKhau" prefWidth="75.0" style="-fx-alignment: center;" text="Mật Khẩu" />
+            <TableColumn fx:id="colVaiTro" prefWidth="75.0" style="-fx-alignment: center;" text="Vai Trò" />
+            <TableColumn fx:id="colDel" prefWidth="75.0" style="-fx-alignment: center;" text="Xóa" />
+         </columns>
+      </TableView>
+</AnchorPane>

@@ -9,9 +9,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLNhanVienController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../../styles/StyleNhanVien.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLNhanVienController">
    <children>
-      <TableView fx:id="tbvNhanVien" layoutX="23.0" layoutY="232.0" onMouseClicked="#GetItem" prefHeight="227.0" prefWidth="840.0">
+      <TableView fx:id="tbvNhanVien" layoutX="75.0" layoutY="277.0" onMouseClicked="#GetItem" prefHeight="289.0" prefWidth="840.0">
          <columns>
             <TableColumn fx:id="colHo" prefWidth="75.0" style="-fx-alignment: center;" text="Họ Nhân Viên" />
             <TableColumn fx:id="colTenNV" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Nhân Viên" />
@@ -26,12 +26,12 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <Text fontSmoothingType="LCD" layoutX="144.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="Danh Sách Nhân Viên" textAlignment="CENTER" wrappingWidth="601.2672729492188">
+      <Text fx:id="lbQLNV" fontSmoothingType="LCD" layoutX="144.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="Danh Sách Nhân Viên" textAlignment="CENTER" wrappingWidth="601.2672729492188">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <TextField fx:id="txtTenNV" layoutX="470.0" layoutY="97.0" prefHeight="26.0" prefWidth="350.0" promptText="Nhập tên nhân viên">
+      <TextField fx:id="txtTenNV" layoutX="513.0" layoutY="97.0" prefHeight="26.0" prefWidth="350.0" promptText="Nhập tên nhân viên">
          <font>
             <Font size="15.0" />
          </font>
@@ -41,27 +41,27 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtPhoneNumber" layoutX="470.0" layoutY="153.0" prefHeight="26.0" prefWidth="350.0" promptText="Nhập số điên thoại">
+      <TextField fx:id="txtPhoneNumber" layoutX="513.0" layoutY="153.0" prefHeight="26.0" prefWidth="350.0" promptText="Nhập số điên thoại">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <ComboBox fx:id="cbChiNhanhs" layoutX="189.0" layoutY="195.0" prefWidth="150.0" promptText="Chọn chi nhánh" />
-      <Button layoutX="29.0" layoutY="493.0" mnemonicParsing="false" onAction="#addNhanVien" prefHeight="46.0" prefWidth="202.0" text="Thêm Nhân Viên">
+      <ComboBox fx:id="cbChiNhanhs" layoutX="162.0" layoutY="214.0" prefHeight="43.0" prefWidth="191.0" promptText="Chọn chi nhánh" />
+      <Button layoutX="43.0" layoutY="596.0" mnemonicParsing="false" onAction="#addNhanVien" prefHeight="46.0" prefWidth="202.0" text="Thêm Nhân Viên">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="264.0" layoutY="493.0" mnemonicParsing="false" onAction="#updateNhanVien" prefHeight="46.0" prefWidth="181.0" text="Cập nhật" textAlignment="CENTER">
+      <Button layoutX="371.0" layoutY="596.0" mnemonicParsing="false" onAction="#updateNhanVien" prefHeight="46.0" prefWidth="181.0" text="Cập nhật" textAlignment="CENTER">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="500.0" layoutY="493.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="253.0" text="Tài Khoản Nhân Viên" textAlignment="CENTER">
+      <Button layoutX="695.0" layoutY="596.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="253.0" text="Tài Khoản Nhân Viên" textAlignment="CENTER">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cbActive" layoutX="552.0" layoutY="195.0" prefWidth="150.0" promptText="Chọn chức năng" />
+      <ComboBox fx:id="cbActive" layoutX="603.0" layoutY="214.0" prefHeight="43.0" prefWidth="181.0" promptText="Chọn chức năng" />
    </children>
 </Pane>

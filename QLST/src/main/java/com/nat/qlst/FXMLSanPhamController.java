@@ -52,19 +52,30 @@ public class FXMLSanPhamController implements Initializable{
     @FXML private TableColumn<SanPham,String> colDel;
     @FXML private ComboBox<ChiNhanh> cbChiNhanhs ;
     @FXML private Integer index;
-    @FXML private Date date;
-    public void setData(int data) throws SQLException{
+    public void setData() throws SQLException{
             SanPhamServices spS = new SanPhamServices();
-            this.tbvSanPham.setItems(FXCollections.observableList(spS.getSanPham(data)));
+            this.tbvSanPham.setItems(FXCollections.observableList(spS.getSanPham()));
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
         try {
-            this.loadTableView();
+            
             this.loadTableView();
             ChinhanhServices cnS = new ChinhanhServices();
             this.cbChiNhanhs.setItems(FXCollections.observableList(cnS.getChiNhanh()));
+            SanPhamServices spS = new SanPhamServices();
+            cbChiNhanhs.setOnAction(event -> {
+                ChiNhanh selectedDCN = cbChiNhanhs.getSelectionModel().getSelectedItem();
+                if (selectedDCN != null) {
+                    
+                    try {
+                        this.tbvSanPham.setItems(FXCollections.observableList(spS.getSanPham(cbChiNhanhs.getSelectionModel().getSelectedItem().getMachinhanh())));
+                    } catch (SQLException ex) {
+                        Logger.getLogger(FXMLNhanVienController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } 
+            });
         } catch (SQLException ex) {
             Logger.getLogger(FXMLSanPhamController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -94,8 +105,8 @@ public class FXMLSanPhamController implements Initializable{
                     if (res == ButtonType.OK) {
                         Button b = (Button)evt.getSource();
                         TableCell cell = (TableCell) b.getParent();
-                       
                         SanPham sp = (SanPham) cell.getTableRow().getItem();
+                        
                         SanPhamServices spS = new SanPhamServices();
                         
                         try {
@@ -115,8 +126,6 @@ public class FXMLSanPhamController implements Initializable{
         });
     }
     public void addSanPham(ActionEvent event) throws SQLException{
-        
-            
         if(cbChiNhanhs.getSelectionModel().getSelectedItem() == null ){
             MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chi nhánh để thêm nhân viên", Alert.AlertType.ERROR).showAndWait();
         }

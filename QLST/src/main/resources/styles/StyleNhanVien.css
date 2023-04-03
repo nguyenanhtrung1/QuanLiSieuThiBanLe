@@ -1,0 +1,48 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Apr 2, 2023, 11:46:49 PM
+    Author     : Admin
+*/
+
+/* Stylized TextField */
+.text-field {
+    -fx-prompt-text-fill: grey;
+    -fx-border-width: 2px;
+    -fx-border-color: #2196F3;
+}
+.button {   
+  -fx-background-color: #2196F3; 
+  -fx-text-fill: white; 
+}
+.button:hover {
+  -fx-background-color: #0D47A1; 
+}
+/* Stylized TableView */
+.table-view {
+    -fx-font-size: 11pt;
+}
+.table-view .column-header-background {
+  -fx-background-color: #f2f2f2;  
+}
+
+.table-view .column-header, .cell {
+  -fx-alignment: center;  
+}
+
+.table-view .column-header .label {
+  -fx-font-weight: bold;  
+  -fx-font-size: 16;  
+}
+.table-column {
+    -fx-alignment: center;
+}
+
+.combo-box {
+    -fx-padding: 4px;
+    -fx-border-width: 2px;
+    -fx-border-color: #2196F3;
+    -fx-font-size: 11pt;  
+}

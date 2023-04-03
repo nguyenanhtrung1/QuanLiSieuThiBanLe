@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" stylesheets="@../../../styles/stylelogin.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLTaiKhoanController">
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" stylesheets="@../../../styles/stylelogin.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLLoginController">
     <TabPane layoutX="15.0" layoutY="70.0" prefHeight="344.0" prefWidth="570.0">
         <Tab closable="false" text="Đăng nhập">
             <VBox alignment="CENTER" prefHeight="291.0" prefWidth="550.0" spacing="5.0">
@@ -21,7 +21,10 @@
                 <PasswordField fx:id="txtMK_DangNhap" />
             <Label layoutX="227.0" layoutY="64.0" text="Chọn Hình Thức Đăng Nhập" />
             <ComboBox fx:id="cbTK_RoleDN" prefHeight="26.0" prefWidth="332.0" promptText="Nhân viên hoặc quản trị viên" />
-                <Button onAction="#DangNhap" text="Đăng nhập" />
+                <Button onAction="#DangNhap" prefHeight="48.0" prefWidth="140.0" text="Đăng nhập">
+               <font>
+                  <Font size="20.0" />
+               </font></Button>
                 <Label fx:id="loginStatus" />
             </VBox>
         </Tab>
@@ -34,14 +37,14 @@
                 <PasswordField fx:id="txtMK_DangKi" />
             <Label layoutX="229.0" layoutY="47.0" text="Chọn Hình Thức Đăng Kí" />
             <ComboBox fx:id="cbTK_RoleDK" prefHeight="26.0" prefWidth="352.0" promptText="Nhân viên hoặc quản trị viên" />
-                <Button onAction="#addTaiKhoan" text="Đăng ký" />
+                <Button onAction="#addTaiKhoan" prefHeight="48.0" prefWidth="140.0" text="Đăng ký" />
                 <Label fx:id="signupStatus" />
             </VBox>
         </Tab>
     </TabPane>
-   <Label layoutX="201.0" layoutY="23.0" text="Đăng nhập vào hệ thống">
+   <Label layoutX="193.0" layoutY="14.0" text="Đăng nhập vào hệ thống">
       <font>
-         <Font size="22.0" />
+         <Font size="30.0" />
       </font>
    </Label>
 </AnchorPane>
