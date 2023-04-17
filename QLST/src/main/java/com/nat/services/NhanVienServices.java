@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+    
 /**
  *
  * @author Admin
@@ -63,13 +63,12 @@ public class NhanVienServices {
     }
     public void addNhanVien(NhanVien nv) throws SQLException{
         try(Connection conn = jdbcUtils.getConn()){
-            PreparedStatement stm = conn.prepareStatement("INSERT INTO nhanvien(lastname,firstname,age,phonenumber,chinhanhID) VALUES(?,?,?,?,?)");
+            PreparedStatement stm = conn.prepareStatement("INSERT INTO nhanvien(firstname,lastname,age,phonenumber,chinhanhID) VALUES(?,?,?,?,?)");
             
-            stm.setString(1, nv.getLastname()); 
-            stm.setString(2,nv.getFirstname());
+            stm.setString(1, nv.getFirstname()); 
+            stm.setString(2,nv.getLastname());
             stm.setInt(3, nv.getAge());
             stm.setString(4, nv.getPhonenumber());
-//            stm.setByte(5, nv.getActivenhanvien());
             stm.setInt(5, nv.getChinhanhID());
             stm.executeUpdate();
             
@@ -102,5 +101,7 @@ public class NhanVienServices {
             stm.executeUpdate();
        }
    }
+    
+   
     
 }

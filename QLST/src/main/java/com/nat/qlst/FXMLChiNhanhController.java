@@ -148,24 +148,24 @@ public class FXMLChiNhanhController implements Initializable {
         txtDiaChi.setText(colDiaChi.getCellData(index));
     }
 
-    public void changeScenceChiNhanhDetail(ActionEvent event) throws IOException {
-        if (tbvChiNhanh.getSelectionModel().getSelectedItem() == null) {
-            MessageBox.getBox("Chưa chọn dữ liệu", "Bạn chưa chọn chi nhánh để sử dụng chức năng", Alert.AlertType.ERROR).showAndWait();
-        } else {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("ChiNhanhDetails.fxml"));
-
-            Parent ChiNhanhViewParent = loader.load();
-            Scene scene = new Scene(ChiNhanhViewParent, 1000, 700);
-            FXMLChiNhanhDetail controller = loader.getController();
-            ChiNhanh selected = tbvChiNhanh.getSelectionModel().getSelectedItem();
-            controller.setChiNhanh(selected);
-            stage.setScene(scene);
-        }
-
-    }
+//    public void changeScenceChiNhanhDetail(ActionEvent event) throws IOException {
+//        if (tbvChiNhanh.getSelectionModel().getSelectedItem() == null) {
+//            MessageBox.getBox("Chưa chọn dữ liệu", "Bạn chưa chọn chi nhánh để sử dụng chức năng", Alert.AlertType.ERROR).showAndWait();
+//        } else {
+//            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//
+//            FXMLLoader loader = new FXMLLoader();
+//            loader.setLocation(getClass().getResource("ChiNhanhDetails.fxml"));
+//
+//            Parent ChiNhanhViewParent = loader.load();
+//            Scene scene = new Scene(ChiNhanhViewParent, 1000, 700);
+//            FXMLChiNhanhDetail controller = loader.getController();
+//            ChiNhanh selected = tbvChiNhanh.getSelectionModel().getSelectedItem();
+//            controller.setChiNhanh(selected);
+//            stage.setScene(scene);
+//        }
+//
+//    }
 
     public void loadNhanVienDetail(ActionEvent event) throws IOException, SQLException {
 
@@ -175,7 +175,7 @@ public class FXMLChiNhanhController implements Initializable {
         controller.setData();
         Stage stage = new Stage();
         Scene scene = new Scene(root, 1000, 700);
-        stage.setScene(scene);
+        stage.setScene(scene);  
         stage.show();
     }
 
@@ -192,7 +192,6 @@ public class FXMLChiNhanhController implements Initializable {
     }
 
     public void loadTaiKhoanDetails(ActionEvent event) throws IOException, SQLException {
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TaiKhoanConTroller.fxml"));
         Parent root = loader.load();
         FXMLTaiKhoanController controller = loader.getController();

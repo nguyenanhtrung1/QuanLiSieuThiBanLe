@@ -20,7 +20,7 @@ public class SanPham {
 
     public SanPham() {
     }
-
+    
     public SanPham(String tensanpham, int soluong, float giatien, Date ngaysanxuat, int chinhanhID) {
         this.tensanpham = tensanpham;
         this.soluong = soluong;

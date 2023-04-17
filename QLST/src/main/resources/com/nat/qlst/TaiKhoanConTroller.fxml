@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLTaiKhoanController">
-    <TableView fx:id="tbvNhanVien" layoutX="56.0" layoutY="104.0" prefHeight="495.0" prefWidth="898.0">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../../styles/StyleNhanVien.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLTaiKhoanController">
+    <TableView fx:id="tbvTaiKhoan" layoutX="62.0" layoutY="262.0" prefHeight="306.0" prefWidth="898.0">
          <columns>
             <TableColumn fx:id="colTaiKhoan" prefWidth="75.0" style="-fx-alignment: center;" text="Tài Khoản" />
             <TableColumn fx:id="colMatKhau" prefWidth="75.0" style="-fx-alignment: center;" text="Mật Khẩu" />
@@ -13,4 +18,30 @@
             <TableColumn fx:id="colDel" prefWidth="75.0" style="-fx-alignment: center;" text="Xóa" />
          </columns>
       </TableView>
+   <Text fx:id="lbQLNV" fontSmoothingType="LCD" layoutX="191.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="Subject" text="Quản Lí Tài Khoản" textAlignment="CENTER" wrappingWidth="601.2672729492188">
+      <font>
+         <Font size="32.0" />
+      </font>
+   </Text>
+   <Button layoutX="244.0" layoutY="621.0" mnemonicParsing="false" onAction="#addTaiKhoan" prefHeight="46.0" prefWidth="228.0" text="Thêm Tài Khoản">
+      <font>
+         <Font size="22.0" />
+      </font>
+   </Button>
+   <Button layoutX="550.0" layoutY="621.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="217.0" text="Cập nhật tài khoản" textAlignment="CENTER">
+      <font>
+         <Font size="22.0" />
+      </font>
+   </Button>
+   <ComboBox fx:id="cbTaiKhoan" layoutX="396.0" layoutY="173.0" prefHeight="43.0" prefWidth="191.0" promptText="Chọn chức năng" />
+   <TextField fx:id="txtTaiKhoan" layoutX="85.0" layoutY="107.0" prefHeight="26.0" prefWidth="350.0" promptText="Nhập tài khoản">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </TextField>
+   <TextField fx:id="txtMatKhau" layoutX="511.0" layoutY="107.0" prefHeight="26.0" prefWidth="350.0" promptText="nhập mật khẩu">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </TextField>
 </AnchorPane>

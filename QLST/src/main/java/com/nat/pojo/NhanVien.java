@@ -28,9 +28,9 @@ public class NhanVien {
         this.chinhanhID = chinhanhID;
     }
 
-    public NhanVien(String lastname, String firstname, int age, String phonenumber, int chinhanhID) {
-        this.lastname = lastname;
+    public NhanVien(String firstname, String lastname, int age, String phonenumber, int chinhanhID) {
         this.firstname = firstname;
+        this.lastname = lastname;
         this.age = age;
         this.phonenumber = phonenumber;
         this.chinhanhID = chinhanhID;
@@ -42,6 +42,13 @@ public class NhanVien {
         this.phonenumber = phonenumber;
         this.activenhanvien = activenhanvien;
         this.manhanvien = manhanvien;
+    }
+    public NhanVien(int manhanvien, String lastname, String firstname, int age, String phonenumber) {
+        this.manhanvien = manhanvien;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.age = age;
+        this.phonenumber = phonenumber;
     }
     public NhanVien(int manhanvien, String lastname, String firstname, int age, String phonenumber, int chinhanhID) {
         this.manhanvien = manhanvien;

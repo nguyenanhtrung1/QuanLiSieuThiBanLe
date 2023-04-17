@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLHoaDonConroller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../../styles/StyleNhanVien.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLHoaDonConroller">
    <children>
-      <TableView fx:id="tbvHoaDon" layoutX="42.0" layoutY="249.0" prefHeight="244.0" prefWidth="716.0">
+      <TableView fx:id="tbvHoaDon" layoutX="14.0" layoutY="248.0" prefHeight="313.0" prefWidth="487.0">
         <columns>
           <TableColumn fx:id="colMaHD" prefWidth="75.0" text="Mã Hóa Đơn" />
           <TableColumn fx:id="colMaSanPham" prefWidth="75.0" text="Tên Sản Phẩm" />
@@ -22,32 +22,66 @@
             <TableColumn fx:id="colDate" prefWidth="75.0" text="Ngày Nhập" />
         </columns>
       </TableView>
-      <Label layoutX="91.0" layoutY="64.0" text="Mã Hóa Đơn : " />
-      <TextField fx:id="txtMaHoaDon" layoutX="177.0" layoutY="60.0" />
-      <Label layoutX="91.0" layoutY="120.0" text="Mã Sản Phẩm : " />
-      <TextField fx:id="txtMaSanPham" layoutX="177.0" layoutY="116.0" />
-      <Label layoutX="400.0" layoutY="120.0" text="Nhân Viên Nhập : " />
-      <TextField fx:id="txtGiaNHap" layoutX="520.0" layoutY="60.0" />
-      <Label layoutX="400.0" layoutY="64.0" text="Giá Nhập :" />
-      <Label layoutX="91.0" layoutY="171.0" text="Số Lượng : " />
-      <TextField fx:id="txtSoLuong" layoutX="177.0" layoutY="167.0" />
-      <Label layoutX="400.0" layoutY="171.0" text="Ngày Nhập : " />
-      <Label layoutX="308.0" layoutY="14.0" text="Nhập Hóa Đơn">
+      <TextField fx:id="txtMaHoaDon" layoutX="67.0" layoutY="60.0" prefHeight="30.0" prefWidth="178.0" promptText="Mã hóa đơn" />
+      <TextField fx:id="txtMaSanPham" layoutX="67.0" layoutY="108.0" prefHeight="30.0" prefWidth="178.0" promptText="Mã Sản Phẩm" />
+      <TextField fx:id="txtGiaNHap" layoutX="293.0" layoutY="60.0" prefHeight="30.0" prefWidth="157.0" promptText="Giá nhập" />
+      <TextField fx:id="txtSoLuong" layoutX="67.0" layoutY="155.0" prefHeight="30.0" prefWidth="178.0" promptText="Số Lượng" />
+      <Label layoutX="216.0" layoutY="14.0" text="Nhập Hóa Đơn">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cbHoaDon" layoutX="519.0" layoutY="116.0" prefWidth="150.0" />
-      <DatePicker fx:id="dateNhap" layoutX="519.0" layoutY="167.0" />
-      <Button layoutX="73.0" layoutY="525.0" mnemonicParsing="false" text="Nhập hóa đơn">
+      <ComboBox fx:id="cbHoaDon" layoutX="294.0" layoutY="101.0" prefHeight="43.0" prefWidth="157.0" />
+      <DatePicker fx:id="dateNhap" layoutX="294.0" layoutY="155.0" prefHeight="30.0" prefWidth="185.0" />
+      <Button layoutX="31.0" layoutY="587.0" mnemonicParsing="false" text="Nhập hóa đơn">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="289.0" layoutY="525.0" mnemonicParsing="false" text="Sửa Hóa Đơn">
+      <Button layoutX="242.0" layoutY="587.0" mnemonicParsing="false" text="Sửa Hóa Đơn">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
+      <TableView fx:id="tbvKhachHang" layoutX="515.0" layoutY="108.0" prefHeight="350.0" prefWidth="466.0">
+        <columns>
+          <TableColumn fx:id="colMaKhachHang" prefWidth="75.0" text="Mã thành viên" />
+          <TableColumn fx:id="colHoKhachHang" prefWidth="75.0" text="Họ thành viên" />
+            <TableColumn fx:id="colTenKhachHang" prefWidth="75.0" text="Tên thành viên" />
+            <TableColumn fx:id="colNgaySinh" prefWidth="75.0" text="Ngày Sinh" />
+            <TableColumn fx:id="colSoDienThoai" prefWidth="75.0" text="Số Điện Thoại" />
+            <TableColumn fx:id="colDel" prefWidth="75.0" text="Lựa Chọn" />
+        </columns>
+      </TableView>
+      <Label layoutX="661.0" layoutY="25.0" text="Thông tin hóa đơn">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtGiaNHap1" layoutX="609.0" layoutY="73.0" prefHeight="25.0" prefWidth="316.0" promptText="Thông tin thành viên" />
+      <TextField fx:id="txtGiaNHap11" layoutX="645.0" layoutY="487.0" prefHeight="25.0" prefWidth="316.0" />
+      <TextField fx:id="txtGiaNHap12" layoutX="710.0" layoutY="535.0" prefHeight="25.0" prefWidth="251.0" />
+      <Label layoutX="534.0" layoutY="486.0" text="Thành tiền  :">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="519.0" layoutY="536.0" text="Khách hàng áp dụng : ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="501.0" layoutY="602.0" text="Tiền khách đưa : ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="501.0" layoutY="635.0" text="Tiền thừa : ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtGiaNHap121" layoutX="661.0" layoutY="603.0" prefHeight="25.0" prefWidth="284.0" />
+      <TextField fx:id="txtGiaNHap122" layoutX="661.0" layoutY="634.0" prefHeight="25.0" prefWidth="284.0" />
    </children>
 </Pane>

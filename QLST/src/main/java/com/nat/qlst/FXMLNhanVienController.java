@@ -103,12 +103,11 @@ public class FXMLNhanVienController implements Initializable {
     }
 
     public void loadTableView() {
-
-        colTenNV.setPrefWidth(150);
-        colTenNV.setCellValueFactory(new PropertyValueFactory("firstname"));
-
         colHo.setPrefWidth(150);
-        colHo.setCellValueFactory(new PropertyValueFactory("lastname"));
+        colHo.setCellValueFactory(new PropertyValueFactory("firstname"));
+        
+        colTenNV.setPrefWidth(150);
+        colTenNV.setCellValueFactory(new PropertyValueFactory("lastname"));
 
         colTuoiNV.setPrefWidth(150);
         colTuoiNV.setCellValueFactory(new PropertyValueFactory("age"));
