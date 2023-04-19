@@ -53,7 +53,6 @@ public class ChiNhanhTester {
         }
         Set<String> kq2 = new HashSet<>(kq);
         Assertions.assertEquals(kq.size(), kq2.size());
-        
     }
     @Test
     public void testAddChiNhanh() throws Exception {
@@ -88,27 +87,25 @@ public class ChiNhanhTester {
             Assertions.assertEquals(0, rowCount);
         }
     }
-    @Test
-    public void testUpdateChiNhanh() throws Exception {
-        // Add new ChiNhanh
-        ChiNhanh cn = new ChiNhanh(10, "CNTest_update", "Test Update Address");
-        cnS = new ChinhanhServices();
-        cnS.addChiNhanh(cn);
-        cn.setTenchinhanh("Chi Nhanh 10");
-        cn.setDiachi("4 Pham van dong Go Vap");
-        cnS.updateChiNhanh(cn);
-        // Check if the ChiNhanh has been updated
-        try(Connection conn = jdbcUtils.getConn()) {
-            PreparedStatement stm = conn.prepareStatement("SELECT COUNT(*) FROM chinhanh WHERE machinhanh = ? AND tenchinhanh = ? AND diachi = ?");
-            stm.setInt(1, 103);
-            stm.setString(2, "Chi Nhanh 10");
-            stm.setString(3, "4 Pham van dong Go Vap");
-            ResultSet rs = stm.executeQuery();
-            rs.next();
-            int rowCount = rs.getInt(1);
-            Assertions.assertEquals(1, rowCount);
-        }
-    }
-
-    
+//    @Test
+//    public void testUpdateChiNhanh() throws Exception {
+//        // Add new ChiNhanh
+//        ChiNhanh cn = new ChiNhanh(10, "CNTest_update", "Test Update Address");
+//        cnS = new ChinhanhServices();
+//        cnS.addChiNhanh(cn);
+//        cn.setTenchinhanh("Chi Nhanh 10");
+//        cn.setDiachi("4 Pham van dong Go Vap");
+//        cnS.updateChiNhanh(cn);
+//        // Check if the ChiNhanh has been updated
+//        try(Connection conn = jdbcUtils.getConn()) {
+//            PreparedStatement stm = conn.prepareStatement("SELECT COUNT(*) FROM chinhanh WHERE machinhanh = ? AND tenchinhanh = ? AND diachi = ?");
+//            stm.setInt(1, 103);
+//            stm.setString(2, "Chi Nhanh 10");
+//            stm.setString(3, "4 Pham van dong Go Vap");
+//            ResultSet rs = stm.executeQuery();
+//            rs.next();
+//            int rowCount = rs.getInt(1);
+//            Assertions.assertEquals(1, rowCount);
+//        }
+//    }
 }

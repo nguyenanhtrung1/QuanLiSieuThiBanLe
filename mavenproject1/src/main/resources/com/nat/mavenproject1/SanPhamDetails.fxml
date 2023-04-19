@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../../styles/StyleSanPhan.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLSanPhamController">
+   <children>
+      <TableView fx:id="tbvSanPham" layoutX="46.0" layoutY="256.0" onMouseClicked="#GetItem" prefHeight="319.0" prefWidth="930.0">
+        <columns>
+          <TableColumn fx:id="colTenSP" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Sản Phẩm" />
+            <TableColumn fx:id="colSoLuongSP" prefWidth="75.0" style="-fx-alignment: center;" text="Số Lượng" />
+            <TableColumn fx:id="colGiaTien" prefWidth="75.0" style="-fx-alignment: center;" text="Giá Tiền" />
+            <TableColumn fx:id="colNgaySanXuat" prefWidth="75.0" style="-fx-alignment: center;" text="Ngày Sản Xuất" />
+            <TableColumn fx:id="colDel" prefWidth="75.0" style="-fx-alignment: center;" text="Xóa" />
+        </columns>
+      </TableView>
+      <Label layoutX="75.0" layoutY="73.0" text="Tên Sản Phẩm : ">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="txtTenSanPham" layoutX="196.0" layoutY="60.0" prefHeight="46.0" prefWidth="280.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <TextField fx:id="txtGiaTien" layoutX="647.0" layoutY="60.0" prefHeight="46.0" prefWidth="280.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Label layoutX="544.0" layoutY="63.0" text="Giá Tiền :">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="91.0" layoutY="145.0" text="Số Lượng : ">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="txtSoLuong" layoutX="196.0" layoutY="125.0" prefHeight="46.0" prefWidth="280.0">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Label layoutX="520.0" layoutY="145.0" text="Ngày Sản Xuất : ">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="411.0" layoutY="11.0" text="Quản Lí Sản Phẩm">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="DateNgaySanXuat" layoutX="647.0" layoutY="143.0" prefHeight="25.0" prefWidth="280.0" promptText="Chọn ngày SX" />
+      <Button layoutX="203.0" layoutY="601.0" mnemonicParsing="false" onAction="#addSanPham" text="Thêm Sản Phẩm">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Button layoutX="615.0" layoutY="613.0" mnemonicParsing="false" onAction="#updateSanPham" text="Cập Nhật Sản Phẩm">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="cbChiNhanhs" layoutX="411.0" layoutY="186.0" prefWidth="150.0" />
+   </children>
+</Pane>

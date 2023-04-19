@@ -168,8 +168,8 @@ public class FXMLNhanVienController implements Initializable {
 
     public void updateNhanVien(ActionEvent event) throws SQLException {
 
-        if (cbActive.getSelectionModel().getSelectedItem() == null) {
-            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chi nhánh để cập nhật nhân viên", Alert.AlertType.ERROR).showAndWait();
+        if (cbActive.getSelectionModel().getSelectedItem() == null ) {
+            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chức năng và chi nhánh để cập nhật nhân viên", Alert.AlertType.ERROR).showAndWait();
         } else if (txtHo.getText().isEmpty() || txtTenNV.getText().isEmpty() || txtTuoi.getText().isEmpty() || txtPhoneNumber.getText().isEmpty()) {
             MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa Nhập đầy đủ dữ liệu", Alert.AlertType.ERROR).showAndWait();
 

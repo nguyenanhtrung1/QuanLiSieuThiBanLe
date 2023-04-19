@@ -45,8 +45,6 @@ public class FXMLChiNhanhController implements Initializable {
     private TableColumn<ChiNhanh, String> colTenCN;
     @FXML
     private TableColumn<ChiNhanh, String> colDiaChi;
-    @FXML
-    private TableColumn<ChiNhanh, Integer> colSLNhanVien;
     ChinhanhServices cnS = new ChinhanhServices();
 
     public void LoadData() throws SQLException {
@@ -86,8 +84,8 @@ public class FXMLChiNhanhController implements Initializable {
         colDiaChi.setPrefWidth(350);
         colDiaChi.setCellValueFactory(new PropertyValueFactory("diachi"));
 
-        colSLNhanVien.setPrefWidth(200);
-        colSLNhanVien.setCellValueFactory(new PropertyValueFactory("soluongnhanvien"));
+//        colSLNhanVien.setPrefWidth(200);
+//        colSLNhanVien.setCellValueFactory(new PropertyValueFactory("soluongnhanvien"));
 //        this.tbvChiNhanh.getColumns().addAll(colTenCN,colDiaChi);
         TableColumn colDel = new TableColumn("Xóa");
         colDel.setCellFactory(r -> {
@@ -122,9 +120,7 @@ public class FXMLChiNhanhController implements Initializable {
         this.tbvChiNhanh.getColumns().addAll(colDel);
     }
 
-    public void TimKiemChiNhanh(ActionEvent event) {
-
-    }
+    
 
     public void updateChiNhanh(ActionEvent event) throws SQLException {
 
@@ -195,6 +191,16 @@ public class FXMLChiNhanhController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TaiKhoanConTroller.fxml"));
         Parent root = loader.load();
         FXMLTaiKhoanController controller = loader.getController();
+        controller.LoadData();
+        Stage stage = new Stage();
+        Scene scene = new Scene(root, 1000, 700);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void loadBanHangDetails(ActionEvent event) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BanHangDetails.fxml"));
+        Parent root = loader.load();
+        FXMLBanHangController controller = loader.getController();
         controller.LoadData();
         Stage stage = new Stage();
         Scene scene = new Scene(root, 1000, 700);

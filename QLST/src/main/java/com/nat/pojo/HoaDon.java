@@ -12,24 +12,24 @@ import java.sql.Date;
  */
 public class HoaDon {
     private int mahoadon;
-    private String tensanpham;
-    private int soluong;
-    private float gianhap;
-    private String tennhanvien;
-    private Date ngaynhap;
-    private int makhachhang;
+    private String nhanviennhap;
+    private Double giatien;
+    private Date ngayban;
 
     public HoaDon() {
     }
 
-    public HoaDon(int mahoadon, String tensanpham, int soluong, float gianhap, String tennhanvien, Date ngaynhap, int makhachhang) {
+    public HoaDon(String nhanviennhap, Double giatien, Date ngayban) {
+        this.nhanviennhap = nhanviennhap;
+        this.giatien = giatien;
+        this.ngayban = ngayban;
+    }
+    
+    public HoaDon(int mahoadon, String nhanviennhap, Double giatien, Date ngayban) {
         this.mahoadon = mahoadon;
-        this.tensanpham = tensanpham;
-        this.soluong = soluong;
-        this.gianhap = gianhap;
-        this.tennhanvien = tennhanvien;
-        this.ngaynhap = ngaynhap;
-        this.makhachhang = makhachhang;
+        this.nhanviennhap = nhanviennhap;
+        this.giatien = giatien;
+        this.ngayban = ngayban;
     }
 
     public int getMahoadon() {
@@ -40,57 +40,33 @@ public class HoaDon {
         this.mahoadon = mahoadon;
     }
 
-    public String getTensanpham() {
-        return tensanpham;
+    public String getNhanviennhap() {
+        return nhanviennhap;
     }
 
-    public void setTensanpham(String tensanpham) {
-        this.tensanpham = tensanpham;
+    public void setNhanviennhap(String nhanviennhap) {
+        this.nhanviennhap = nhanviennhap;
     }
 
-    public int getSoluong() {
-        return soluong;
+    public Double getGiatien() {
+        return giatien;
     }
 
-    public void setSoluong(int soluong) {
-        this.soluong = soluong;
+    public void setGiatien(Double giatien) {
+        this.giatien = giatien;
     }
 
-    public float getGianhap() {
-        return gianhap;
+    public Date getNgayban() {
+        return ngayban;
     }
 
-    public void setGianhap(float gianhap) {
-        this.gianhap = gianhap;
+    public void setNgayban(Date ngayban) {
+        this.ngayban = ngayban;
     }
 
-    public String getTennhanvien() {
-        return tennhanvien;
-    }
-
-    public void setTennhanvien(String tennhanvien) {
-        this.tennhanvien = tennhanvien;
-    }
-
-    public Date getNgaynhap() {
-        return ngaynhap;
-    }
-
-    public void setNgaynhap(Date ngaynhap) {
-        this.ngaynhap = ngaynhap;
-    }
-
-    public int getMakhachhang() {
-        return makhachhang;
-    }
-
-    public void setMakhachhang(int makhachhang) {
-        this.makhachhang = makhachhang;
-    }
     
-   
     
-
+    
     
     
 }

@@ -18,12 +18,12 @@
                 <Label text="Nhập Tài Khoản" />
                 <TextField fx:id="txtTK_DangNhap" />
                 <Label text="Mật khẩu" />
-                <PasswordField fx:id="txtMK_DangNhap" />
+                <PasswordField fx:id="passwordMK_DangNhap" />
             <Label layoutX="227.0" layoutY="64.0" text="Chọn Hình Thức Đăng Nhập" />
             <ComboBox fx:id="cbTK_RoleDN" prefHeight="26.0" prefWidth="332.0" promptText="Nhân viên hoặc quản trị viên" />
-                <Button onAction="#DangNhap" prefHeight="48.0" prefWidth="140.0" text="Đăng nhập">
+                <Button fx:id="btnDangNhap" onAction="#DangNhap" prefHeight="30.0" prefWidth="169.0" text="Đăng nhập">
                <font>
-                  <Font size="20.0" />
+                  <Font size="24.0" />
                </font></Button>
                 <Label fx:id="loginStatus" />
             </VBox>
@@ -37,7 +37,7 @@
                 <PasswordField fx:id="txtMK_DangKi" />
             <Label layoutX="229.0" layoutY="47.0" text="Chọn Hình Thức Đăng Kí" />
             <ComboBox fx:id="cbTK_RoleDK" prefHeight="26.0" prefWidth="352.0" promptText="Nhân viên hoặc quản trị viên" />
-                <Button onAction="#addTaiKhoan" prefHeight="48.0" prefWidth="140.0" text="Đăng ký" />
+                <Button fx:id="btnDangKi" onAction="#addTaiKhoan" prefHeight="48.0" prefWidth="140.0" text="Đăng ký" />
                 <Label fx:id="signupStatus" />
             </VBox>
         </Tab>

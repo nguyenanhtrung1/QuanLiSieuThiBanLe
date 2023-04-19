@@ -17,7 +17,7 @@
           <TableColumn fx:id="colTenSP" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Sản Phẩm" />
             <TableColumn fx:id="colSoLuongSP" prefWidth="75.0" style="-fx-alignment: center;" text="Số Lượng" />
             <TableColumn fx:id="colGiaTien" prefWidth="75.0" style="-fx-alignment: center;" text="Giá Tiền" />
-            <TableColumn fx:id="colNgaySanXuat" prefWidth="75.0" style="-fx-alignment: center;" text="Ngày Sản Xuất" />
+            <TableColumn fx:id="colNgaySanXuat" prefWidth="75.0" style="-fx-alignment: center;" text="Ngày Nhập Hàng" />
             <TableColumn fx:id="colDel" prefWidth="75.0" style="-fx-alignment: center;" text="Xóa" />
         </columns>
       </TableView>
@@ -33,7 +33,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Label layoutX="544.0" layoutY="63.0" text="Giá Tiền :">
+      <Label layoutX="550.0" layoutY="73.0" text="Giá Tiền :">
          <font>
             <Font size="15.0" />
          </font></Label>
@@ -45,7 +45,7 @@
          <font>
             <Font size="15.0" />
          </font></TextField>
-      <Label layoutX="520.0" layoutY="145.0" text="Ngày Sản Xuất : ">
+      <Label layoutX="520.0" layoutY="145.0" text="Ngày nhập hàng : ">
          <font>
             <Font size="15.0" />
          </font></Label>
@@ -54,7 +54,7 @@
             <Font size="33.0" />
          </font>
       </Label>
-      <DatePicker fx:id="DateNgaySanXuat" layoutX="647.0" layoutY="143.0" prefHeight="25.0" prefWidth="280.0" promptText="Chọn ngày SX" />
+      <DatePicker fx:id="DateNgaySanXuat" layoutX="647.0" layoutY="137.0" prefHeight="25.0" prefWidth="280.0" promptText="Chọn ngày nhập hàng" />
       <Button layoutX="203.0" layoutY="601.0" mnemonicParsing="false" onAction="#addSanPham" text="Thêm Sản Phẩm">
          <font>
             <Font size="22.0" />

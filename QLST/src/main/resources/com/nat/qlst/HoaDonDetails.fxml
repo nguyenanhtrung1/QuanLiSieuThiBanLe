@@ -10,78 +10,89 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../../styles/StyleNhanVien.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLHoaDonConroller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../../styles/StyleNhanVien.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLHoaDonConroller">
    <children>
-      <TableView fx:id="tbvHoaDon" layoutX="14.0" layoutY="248.0" prefHeight="313.0" prefWidth="487.0">
-        <columns>
-          <TableColumn fx:id="colMaHD" prefWidth="75.0" text="Mã Hóa Đơn" />
-          <TableColumn fx:id="colMaSanPham" prefWidth="75.0" text="Tên Sản Phẩm" />
-            <TableColumn fx:id="colSoLuong" prefWidth="75.0" text="Số Lượng" />
-            <TableColumn fx:id="colGiaTien" prefWidth="75.0" text="Giá Tiền" />
-            <TableColumn fx:id="colNhanVien" prefWidth="75.0" text="Nhân Viên Nhập" />
-            <TableColumn fx:id="colDate" prefWidth="75.0" text="Ngày Nhập" />
-        </columns>
-      </TableView>
-      <TextField fx:id="txtMaHoaDon" layoutX="67.0" layoutY="60.0" prefHeight="30.0" prefWidth="178.0" promptText="Mã hóa đơn" />
-      <TextField fx:id="txtMaSanPham" layoutX="67.0" layoutY="108.0" prefHeight="30.0" prefWidth="178.0" promptText="Mã Sản Phẩm" />
-      <TextField fx:id="txtGiaNHap" layoutX="293.0" layoutY="60.0" prefHeight="30.0" prefWidth="157.0" promptText="Giá nhập" />
-      <TextField fx:id="txtSoLuong" layoutX="67.0" layoutY="155.0" prefHeight="30.0" prefWidth="178.0" promptText="Số Lượng" />
-      <Label layoutX="216.0" layoutY="14.0" text="Nhập Hóa Đơn">
+      <Label layoutX="315.0" layoutY="10.0" text="Nhập Hóa Đơn">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <ComboBox fx:id="cbHoaDon" layoutX="294.0" layoutY="101.0" prefHeight="43.0" prefWidth="157.0" />
-      <DatePicker fx:id="dateNhap" layoutX="294.0" layoutY="155.0" prefHeight="30.0" prefWidth="185.0" />
-      <Button layoutX="31.0" layoutY="587.0" mnemonicParsing="false" text="Nhập hóa đơn">
+      <ComboBox fx:id="cbHoaDon" layoutX="129.0" layoutY="46.0" prefHeight="43.0" prefWidth="157.0" promptText="Nhân viên nhập " />
+      <DatePicker fx:id="dateNhap" layoutX="380.0" layoutY="53.0" prefHeight="30.0" prefWidth="185.0" promptText="ngày nhập" />
+      <Button layoutX="740.0" layoutY="625.0" mnemonicParsing="false" onAction="#luuHoaDon" prefHeight="46.0" prefWidth="209.0" text="Lưu Hóa Đơn">
          <font>
             <Font size="22.0" />
          </font>
       </Button>
-      <Button layoutX="242.0" layoutY="587.0" mnemonicParsing="false" text="Sửa Hóa Đơn">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Button>
-      <TableView fx:id="tbvKhachHang" layoutX="515.0" layoutY="108.0" prefHeight="350.0" prefWidth="466.0">
+      <TableView fx:id="tbvKhachHang" layoutX="625.0" layoutY="148.0" prefHeight="228.0" prefWidth="465.0">
         <columns>
           <TableColumn fx:id="colMaKhachHang" prefWidth="75.0" text="Mã thành viên" />
-          <TableColumn fx:id="colHoKhachHang" prefWidth="75.0" text="Họ thành viên" />
-            <TableColumn fx:id="colTenKhachHang" prefWidth="75.0" text="Tên thành viên" />
+          <TableColumn fx:id="colHoKhachHang" prefWidth="79.199951171875" text="Họ thành viên" />
+            <TableColumn fx:id="colTenKhachHang" prefWidth="71.2000732421875" text="Tên thành viên" />
             <TableColumn fx:id="colNgaySinh" prefWidth="75.0" text="Ngày Sinh" />
             <TableColumn fx:id="colSoDienThoai" prefWidth="75.0" text="Số Điện Thoại" />
-            <TableColumn fx:id="colDel" prefWidth="75.0" text="Lựa Chọn" />
         </columns>
       </TableView>
-      <Label layoutX="661.0" layoutY="25.0" text="Thông tin hóa đơn">
+      <Label layoutX="740.0" layoutY="33.0" text="Thông tin khách hàng">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtGiaNHap1" layoutX="609.0" layoutY="73.0" prefHeight="25.0" prefWidth="316.0" promptText="Thông tin thành viên" />
-      <TextField fx:id="txtGiaNHap11" layoutX="645.0" layoutY="487.0" prefHeight="25.0" prefWidth="316.0" />
-      <TextField fx:id="txtGiaNHap12" layoutX="710.0" layoutY="535.0" prefHeight="25.0" prefWidth="251.0" />
-      <Label layoutX="534.0" layoutY="486.0" text="Thành tiền  :">
+      <TextField fx:id="txtTimKiemTV" layoutX="668.0" layoutY="75.0" prefHeight="43.0" prefWidth="397.0" promptText="Thông tin thành viên" />
+      <TextField fx:id="txtTongTien" layoutX="787.0" layoutY="398.0" opacity="0.5" prefHeight="30.0" prefWidth="253.0" />
+      <TextField fx:id="txtUuDai" layoutX="787.0" layoutY="445.0" opacity="0.5" prefHeight="30.0" prefWidth="253.0" />
+      <Label layoutX="651.0" layoutY="400.0" text="Thành tiền  :">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="519.0" layoutY="536.0" text="Khách hàng áp dụng : ">
+      <Label layoutX="644.0" layoutY="447.0" text="Áp dụng ưu đãi : ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="501.0" layoutY="602.0" text="Tiền khách đưa : ">
+      <Label layoutX="643.0" layoutY="499.0" text="Tiền khách đưa : ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="501.0" layoutY="635.0" text="Tiền thừa : ">
+      <Label layoutX="646.0" layoutY="544.0" text="Tiền thối lại : ">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtGiaNHap121" layoutX="661.0" layoutY="603.0" prefHeight="25.0" prefWidth="284.0" />
-      <TextField fx:id="txtGiaNHap122" layoutX="661.0" layoutY="634.0" prefHeight="25.0" prefWidth="284.0" />
+      <TextField fx:id="txtTienKhachDua" layoutX="787.0" layoutY="497.0" prefHeight="30.0" prefWidth="253.0" />
+      <TextField fx:id="txtTienThua" layoutX="787.0" layoutY="543.0" opacity="0.5" prefHeight="30.0" prefWidth="253.0" />
+      <Button fx:id="btndeleteSP" layoutX="189.0" layoutY="625.0" mnemonicParsing="false" text="Xóa Hết Sản Phẩm">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tbvSanPham" layoutX="25.0" layoutY="148.0" prefHeight="228.0" prefWidth="577.0">
+         <columns>
+            <TableColumn fx:id="colTenSP" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Sản Phẩm" />
+            <TableColumn fx:id="colSoLuongSP" prefWidth="75.0" style="-fx-alignment: center;" text="Số Lượng" />
+            <TableColumn fx:id="colGiaTienSP" prefWidth="75.0" style="-fx-alignment: center;" text="Giá Tiền" />
+            <TableColumn fx:id="colNgaySanXuat" prefWidth="75.0" style="-fx-alignment: center;" text="Ngày Sản Xuất" />
+         </columns>
+      </TableView>
+      <TableView fx:id="tbvSanPham1" layoutX="48.0" layoutY="435.0" prefHeight="182.0" prefWidth="577.0">
+         <columns>
+            <TableColumn fx:id="colTenSP1" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Sản Phẩm" />
+            <TableColumn fx:id="colSoLuongSP1" prefWidth="75.0" style="-fx-alignment: center;" text="Số Lượng" />
+            <TableColumn fx:id="colGiaTienSP1" prefWidth="75.0" style="-fx-alignment: center;" text="Giá Tiền" />
+            <TableColumn fx:id="colNgaySanXuat1" prefWidth="75.0" style="-fx-alignment: center;" text="Ngày Sản Xuất" />
+         </columns>
+      </TableView>
+      <Label layoutX="212.0" layoutY="390.0" text="Sản phẩm đã chọn">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="221.0" layoutY="100.0" text="Sản phẩm đã chọn">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

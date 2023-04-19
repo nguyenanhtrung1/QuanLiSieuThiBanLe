@@ -127,7 +127,7 @@ public class FXMLSanPhamController implements Initializable{
     }
     public void addSanPham(ActionEvent event) throws SQLException{
         if(cbChiNhanhs.getSelectionModel().getSelectedItem() == null ){
-            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chi nhánh để thêm nhân viên", Alert.AlertType.ERROR).showAndWait();
+            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chi nhánh để thêm sản phẩm", Alert.AlertType.ERROR).showAndWait();
         }
         else if(txtTenSanPham.getText().isEmpty() || txtSoLuong.getText().isEmpty() || txtGiaTien.getText().isEmpty() || DateNgaySanXuat.getValue() == null){
         MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa Nhập đầy đủ dữ liệu", Alert.AlertType.ERROR).showAndWait();

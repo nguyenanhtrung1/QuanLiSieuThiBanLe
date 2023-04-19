@@ -22,11 +22,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 
 
 public class FXMLTaiKhoanController implements Initializable {
@@ -43,6 +45,8 @@ public class FXMLTaiKhoanController implements Initializable {
     private TableColumn<TaiKhoan, String> colVaiTro;
     @FXML
     private TableColumn<TaiKhoan, String> colDel;
+    @FXML
+    private Integer index;
     /**
      * Initializes the controller class.
      */
@@ -104,7 +108,7 @@ public class FXMLTaiKhoanController implements Initializable {
     public void addTaiKhoan(ActionEvent event) throws SQLException {
 
         if (cbTaiKhoan.getSelectionModel().getSelectedItem() == null) {
-            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chi nhánh để thêm nhân viên", Alert.AlertType.ERROR).showAndWait();
+            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chức vụ để thêm tài khoản", Alert.AlertType.ERROR).showAndWait();
         } else if (txtTaiKhoan.getText().isEmpty() || txtMatKhau.getText().isEmpty() ) {
             MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa Nhập đầy đủ dữ liệu", Alert.AlertType.ERROR).showAndWait();
 
@@ -115,7 +119,36 @@ public class FXMLTaiKhoanController implements Initializable {
             loadTableTaiKhoan();
         }
     }
+    public void updateTaiKhoan(ActionEvent event) throws SQLException {
+
+        if (cbTaiKhoan.getSelectionModel().getSelectedItem() == null) {
+            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa chọn chi nhánh để cập nhật nhân viên", Alert.AlertType.ERROR).showAndWait();
+        } else if (txtTaiKhoan.getText().isEmpty() || txtMatKhau.getText().isEmpty()) {
+            MessageBox.getBox("Không thể thêm dữ liệu bỏ trống", "Chưa Nhập đầy đủ dữ liệu", Alert.AlertType.ERROR).showAndWait();
+
+        } else {
+           TaiKhoan tk = new TaiKhoan(txtTaiKhoan.getText(), txtMatKhau.getText(),  this.cbTaiKhoan.getValue(),idTaiKhoan());
+            tkS.updateTaiKhoan(tk);
+            loadTableTaiKhoan();
+        }
+    }
+    public void GetItem(MouseEvent event) {
+        index = tbvTaiKhoan.getSelectionModel().getSelectedIndex();
+        if (index < -1) {
+            return;
+        }
+        txtTaiKhoan.setText(colTaiKhoan.getCellData(index));
+        txtMatKhau.setText(colMatKhau.getCellData(index));
+    }
     public void loadTableTaiKhoan() throws SQLException{
         this.tbvTaiKhoan.setItems(FXCollections.observableArrayList(tkS.getTaiKhoanAdmin()));
+    }
+    public int idTaiKhoan() {
+        SelectionModel<TaiKhoan> selectionCollumn = tbvTaiKhoan.getSelectionModel();
+
+        TaiKhoan selectedUser = selectionCollumn.getSelectedItem();
+
+        int TaiKhoanID = selectedUser.getMataikhoan();
+        return TaiKhoanID;
     }
 }

@@ -32,7 +32,6 @@
          <columns>
             <TableColumn fx:id="colTenCN" prefWidth="75.0" style="-fx-alignment: center;" text="Tên Chi Nhánh" />
             <TableColumn fx:id="colDiaChi" prefWidth="75.0" style="-fx-alignment: center;" text="Địa Chỉ" />
-            <TableColumn fx:id="colSLNhanVien" prefWidth="75.0" style="-fx-alignment: center;" text="Số lượng nhân viên" />
          </columns>
       </TableView>
       <TabPane layoutX="77.0" layoutY="464.0" prefHeight="200.0" prefWidth="846.0" tabClosingPolicy="UNAVAILABLE">
@@ -41,17 +40,12 @@
                <content>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="291.0" layoutY="60.0" mnemonicParsing="false" onAction="#updateChiNhanh" text="Cập Nhật Chi Nhánh">
+                        <Button layoutX="436.0" layoutY="60.0" mnemonicParsing="false" onAction="#updateChiNhanh" text="Cập Nhật Chi Nhánh">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button layoutX="547.0" layoutY="60.0" mnemonicParsing="false" onAction="#TimKiemChiNhanh" text="Tìm kiếm Chi Nhánh">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Button>
-                        <Button layoutX="44.0" layoutY="60.0" mnemonicParsing="false" onAction="#addChiNhanh" prefHeight="43.0" prefWidth="200.0" text="Thêm Chi Nhánh">
+                        <Button layoutX="151.0" layoutY="60.0" mnemonicParsing="false" onAction="#addChiNhanh" prefHeight="43.0" prefWidth="200.0" text="Thêm Chi Nhánh">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -75,6 +69,19 @@
                            </font>
                         </Button>
                         <Button layoutX="38.0" layoutY="58.0" mnemonicParsing="false" onAction="#loadTaiKhoanDetails" text="Thông tin tài khoản">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Chức Năng Quản Lí">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="147.0" layoutY="51.0" mnemonicParsing="false" onAction="#loadBanHangDetails" text="Thông tin hóa đơn">
                            <font>
                               <Font size="21.0" />
                            </font>

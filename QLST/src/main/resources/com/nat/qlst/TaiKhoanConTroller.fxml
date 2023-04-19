@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" stylesheets="@../../../styles/StyleNhanVien.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLTaiKhoanController">
-    <TableView fx:id="tbvTaiKhoan" layoutX="62.0" layoutY="262.0" prefHeight="306.0" prefWidth="898.0">
+    <TableView fx:id="tbvTaiKhoan" layoutX="62.0" layoutY="262.0" onMouseClicked="#GetItem" prefHeight="306.0" prefWidth="898.0">
          <columns>
             <TableColumn fx:id="colTaiKhoan" prefWidth="75.0" style="-fx-alignment: center;" text="Tài Khoản" />
             <TableColumn fx:id="colMatKhau" prefWidth="75.0" style="-fx-alignment: center;" text="Mật Khẩu" />
@@ -28,7 +28,7 @@
          <Font size="22.0" />
       </font>
    </Button>
-   <Button layoutX="550.0" layoutY="621.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="217.0" text="Cập nhật tài khoản" textAlignment="CENTER">
+   <Button layoutX="550.0" layoutY="621.0" mnemonicParsing="false" onAction="#updateTaiKhoan" prefHeight="46.0" prefWidth="217.0" text="Cập nhật tài khoản" textAlignment="CENTER">
       <font>
          <Font size="22.0" />
       </font>

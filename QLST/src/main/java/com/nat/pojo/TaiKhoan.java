@@ -31,6 +31,12 @@ public class TaiKhoan {
         this.matkhau = matkhau;
         this.taikhoan_role = taikhoan_role;
     }
+    public TaiKhoan(String tendangnhap, String matkhau, String taikhoan_role,int mataikhoan) {
+        this.tendangnhap = tendangnhap;
+        this.matkhau = matkhau;
+        this.taikhoan_role = taikhoan_role;
+        this.mataikhoan = mataikhoan;
+    }
 
     public int getMataikhoan() {
         return mataikhoan;

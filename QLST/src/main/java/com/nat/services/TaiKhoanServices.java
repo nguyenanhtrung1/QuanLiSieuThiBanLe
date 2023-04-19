@@ -64,4 +64,16 @@ public class TaiKhoanServices {
           stm.executeUpdate(sql);
        }
    }
+    public void updateTaiKhoan(TaiKhoan tk) throws SQLException{
+       try(Connection conn = jdbcUtils.getConn()){
+          String sql = "UPDATE taikhoan SET tendangnhap = ? ,matkhau = ?, taikhoan_role = ? WHERE mataikhoan = ? ";
+            PreparedStatement stm = conn.prepareStatement(sql);
+            stm.setString(1, tk.getTendangnhap());
+            stm.setString(2,tk.getMatkhau());
+            stm.setString(3, tk.getTaikhoan_role()); 
+            stm.setInt(4,tk.getMataikhoan());
+            stm.executeUpdate();
+            
+       }
+   }
 }
