@@ -11,8 +11,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="600.0" stylesheets="@../../../styles/stylelogin.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLLoginController">
-    <TabPane layoutX="15.0" layoutY="70.0" prefHeight="344.0" prefWidth="570.0">
+<AnchorPane id="AnchorPane" stylesheets="@../../../styles/stylelogin.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nat.qlst.FXMLLoginController">
+    <TabPane layoutX="15.0" layoutY="70.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="70.0">
         <Tab closable="false" text="Đăng nhập">
             <VBox alignment="CENTER" prefHeight="291.0" prefWidth="550.0" spacing="5.0">
                 <Label text="Nhập Tài Khoản" />

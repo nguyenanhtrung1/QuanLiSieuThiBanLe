@@ -76,7 +76,6 @@ public class NhanVienTester {
 //
 //            NhanVien nv = new NhanVien(newLastName, newAge, newFirstName, newPhoneNumber, newAge);
 //           
-//            // Cập nhật đối tượng cơ sở dữ liệu với đối tượng mới
 //            nvS = new NhanVienServices();
 //            nvS.updateNhanVien(nv);
 //

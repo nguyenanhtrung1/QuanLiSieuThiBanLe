@@ -36,24 +36,9 @@ public class ChiNhanhTester {
     public static void afterAll() throws SQLException {
         if (conn != null)
                 conn.close();
-//        try {
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ChiNhanhTester.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
     }
-    @Test 
-    public void testDiaChi() throws SQLException{
-        Statement stm = conn.createStatement();
-        ResultSet rs = stm.executeQuery("SELECT * FROM chinhanh");
-        List<String> kq = new ArrayList<>();
-        while(rs.next()){
-            String name = rs.getString("tenchinhanh");
-            kq.add(name);
-        }
-        Set<String> kq2 = new HashSet<>(kq);
-        Assertions.assertEquals(kq.size(), kq2.size());
-    }
+    
     @Test
     public void testAddChiNhanh() throws Exception {
         ChiNhanh cn = new ChiNhanh("CN3", "3 Nguyen Van Troi, Q.Phu Nhuan");

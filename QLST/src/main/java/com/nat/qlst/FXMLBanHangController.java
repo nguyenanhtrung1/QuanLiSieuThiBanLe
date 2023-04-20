@@ -5,7 +5,6 @@
 package com.nat.qlst;
 
 import com.nat.pojo.HoaDon;
-import com.nat.pojo.TaiKhoan;
 import com.nat.services.HoaDonServices;
 import java.net.URL;
 import java.sql.SQLException;

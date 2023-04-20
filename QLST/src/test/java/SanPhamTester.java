@@ -21,20 +21,7 @@ import java.sql.Statement;
 
 public class SanPhamTester {
     private static SanPhamServices spS;
-//    @Test
-//    public void testAddNhanVien() throws Exception {
-//        SanPham sp = new SanPham("Bánh orion", 19, 3200, Date.valueOf("2023-02-21"), 1);
-//        spS = new SanPhamServices();
-//        spS.addSanPham(sp);
-//        try(Connection conn = jdbcUtils.getConn()) {
-//            PreparedStatement stm = conn.prepareStatement("SELECT COUNT(*) FROM nhanvien where chinhanhID = ?");
-//            stm.setInt(1, 1);
-//            ResultSet rs = stm.executeQuery();
-//            rs.next();
-//            int rowCount = rs.getInt(1);
-//            Assertions.assertEquals(11, rowCount); 
-//        }
-//    }
+
     @Test
     public void testAddSanPham() throws Exception {
             final int expectedChiNhanhID = 1;

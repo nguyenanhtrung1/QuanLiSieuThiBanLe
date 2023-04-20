@@ -13,7 +13,6 @@ import com.nat.services.HoaDonServices;
 import com.nat.services.KhachHangServices;
 import com.nat.services.NhanVienServices;
 import java.net.URL;
-import com.nat.qlst.FXMLSanPhamController;
 import com.nat.services.SanPhamServices;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -23,13 +22,9 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-import javafx.beans.binding.DoubleBinding;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +37,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
 
 /**
  *
